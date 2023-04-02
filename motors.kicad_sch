@@ -1,0 +1,35 @@
+(kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid d4a918a1-7ba6-42fe-a85c-806dff285ce1)
+
+  (paper "A4")
+
+  (lib_symbols
+  )
+
+
+  (hierarchical_label "M2_IN1" (shape input) (at 66.04 76.2 180) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify right))
+    (uuid 15ffde2e-9e8f-46f0-9a15-108f6f4b352f)
+  )
+  (hierarchical_label "M1_IN2" (shape input) (at 66.04 73.66 180) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify right))
+    (uuid 69662047-3fb0-46b9-b53b-64e58b78ce68)
+  )
+  (hierarchical_label "M2_PWM" (shape input) (at 66.04 66.04 180) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify right))
+    (uuid 8f36660f-0c97-400a-9391-9bbb1dc81a7a)
+  )
+  (hierarchical_label "M1_IN1" (shape input) (at 66.04 71.12 180) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify right))
+    (uuid 91814270-843b-4bd6-a6fa-d87ba9fc3196)
+  )
+  (hierarchical_label "M2_IN2" (shape input) (at 66.04 78.74 180) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify right))
+    (uuid c4ab9043-e07d-4464-9da3-9c6b4a730e28)
+  )
+  (hierarchical_label "M1_PWM" (shape input) (at 66.04 63.5 180) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify right))
+    (uuid e2a6461f-4739-4b30-89d1-431b07964239)
+  )
+)

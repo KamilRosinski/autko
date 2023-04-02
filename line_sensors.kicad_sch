@@ -1,0 +1,19 @@
+(kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid 7a59dcc8-2d97-4be6-baaa-61b01ee53be7)
+
+  (paper "A4")
+
+  (lib_symbols
+  )
+
+
+  (hierarchical_label "IR_LEDS_ON" (shape input) (at 55.88 66.04 180) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify right))
+    (uuid 1182f4db-8467-4a61-b7d9-6c0ba3645557)
+  )
+  (hierarchical_label "SENSORS[1..7]" (shape output) (at 55.88 60.96 180) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify right))
+    (uuid 2cd8a8e9-5fad-4681-a59b-af4f5e59c4a8)
+  )
+)

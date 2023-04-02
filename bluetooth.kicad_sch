@@ -1,0 +1,19 @@
+(kicad_sch (version 20230121) (generator eeschema)
+
+  (uuid 9835eab6-cb5b-4db6-b46a-6a273450c629)
+
+  (paper "A4")
+
+  (lib_symbols
+  )
+
+
+  (hierarchical_label "RX" (shape input) (at 62.23 62.23 180) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify right))
+    (uuid 325b33fb-7956-48b9-b063-2317c6b35c04)
+  )
+  (hierarchical_label "TX" (shape output) (at 62.23 58.42 180) (fields_autoplaced)
+    (effects (font (size 1.27 1.27)) (justify right))
+    (uuid e4af1be0-4d20-448f-88e5-6c1d360899e3)
+  )
+)
