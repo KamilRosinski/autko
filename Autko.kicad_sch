@@ -56,7 +56,7 @@
     (property "Sheetname" "Motors" (at 80.01 37.3884 0)
       (effects (font (size 1.27 1.27)) (justify left bottom))
     )
-    (property "Sheetfile" "motors.kicad_sch" (at 80.01 59.0046 0)
+    (property "Sheetfile" "Motors.kicad_sch" (at 80.01 59.0046 0)
       (effects (font (size 1.27 1.27)) (justify left top) hide)
     )
     (pin "M1_PWM" input (at 80.01 40.64 180)
@@ -84,7 +84,7 @@
       (uuid 5c3fb097-98f1-49cc-8d23-252d15b044f6)
     )
     (instances
-      (project "autko"
+      (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5" (page "5"))
       )
     )
@@ -97,7 +97,7 @@
     (property "Sheetname" "Line sensors" (at 24.13 37.3884 0)
       (effects (font (size 1.27 1.27)) (justify left bottom))
     )
-    (property "Sheetfile" "line_sensors.kicad_sch" (at 24.13 46.3046 0)
+    (property "Sheetfile" "Line_sensors.kicad_sch" (at 24.13 46.3046 0)
       (effects (font (size 1.27 1.27)) (justify left top) hide)
     )
     (pin "IR_LEDS_ON" input (at 43.18 40.64 0)
@@ -109,7 +109,7 @@
       (uuid 49a43e96-17a0-401c-b7ae-df92c32c75d8)
     )
     (instances
-      (project "autko"
+      (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5" (page "4"))
       )
     )
@@ -122,7 +122,7 @@
     (property "Sheetname" "Bluetooth" (at 24.13 50.0884 0)
       (effects (font (size 1.27 1.27)) (justify left bottom))
     )
-    (property "Sheetfile" "bluetooth.kicad_sch" (at 24.13 59.0046 0)
+    (property "Sheetfile" "Bluetooth.kicad_sch" (at 24.13 59.0046 0)
       (effects (font (size 1.27 1.27)) (justify left top) hide)
     )
     (pin "TX" output (at 43.18 53.34 0)
@@ -134,7 +134,7 @@
       (uuid 76e70cc0-e9bb-48dc-ab94-81ffb4644d95)
     )
     (instances
-      (project "autko"
+      (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5" (page "6"))
       )
     )
@@ -147,7 +147,7 @@
     (property "Sheetname" "Microcontroller" (at 46.99 37.3884 0)
       (effects (font (size 1.27 1.27)) (justify left bottom))
     )
-    (property "Sheetfile" "microcontroller.kicad_sch" (at 46.99 59.0046 0)
+    (property "Sheetfile" "Microcontroller.kicad_sch" (at 46.99 59.0046 0)
       (effects (font (size 1.27 1.27)) (justify left top) hide)
     )
     (pin "IR_LEDS_ON" output (at 46.99 40.64 180)
@@ -191,7 +191,7 @@
       (uuid e49be393-ecf2-454e-8ac3-3f6c8d3434ac)
     )
     (instances
-      (project "autko"
+      (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5" (page "3"))
       )
     )
@@ -204,11 +204,11 @@
     (property "Sheetname" "Power supply" (at 24.13 24.6884 0)
       (effects (font (size 1.27 1.27)) (justify left bottom))
     )
-    (property "Sheetfile" "power_supply.kicad_sch" (at 24.13 33.6046 0)
+    (property "Sheetfile" "Power_supply.kicad_sch" (at 24.13 33.6046 0)
       (effects (font (size 1.27 1.27)) (justify left top) hide)
     )
     (instances
-      (project "autko"
+      (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5" (page "2"))
       )
     )
