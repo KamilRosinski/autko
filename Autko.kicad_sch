@@ -104,7 +104,7 @@
       (effects (font (size 1.27 1.27)) (justify right))
       (uuid 8b674493-fb8d-42a5-960d-c43229d46e8b)
     )
-    (pin "SENSORS[1..7]" output (at 43.18 43.18 0)
+    (pin "SENSOR[1..7]" output (at 43.18 43.18 0)
       (effects (font (size 1.27 1.27)) (justify right))
       (uuid 49a43e96-17a0-401c-b7ae-df92c32c75d8)
     )
