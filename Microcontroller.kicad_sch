@@ -859,6 +859,7 @@
     )
   )
 
+
   (junction (at 147.32 38.1) (diameter 0) (color 0 0 0 0)
     (uuid 07ad00ed-fe94-4ade-9a76-44a66dd7cf3e)
   )
@@ -1664,11 +1665,11 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid db7daa45-ed8c-4d12-9a2c-cb306d4460d6)
   )
-  (label "BTN_2" (at 102.87 64.77 0) (fields_autoplaced)
+  (label "BTN2" (at 102.87 64.77 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid dcfbdfe8-9dea-4e9c-aea9-faf1b3f3e9b4)
   )
-  (label "BTN_1" (at 102.87 62.23 0) (fields_autoplaced)
+  (label "BTN1" (at 102.87 62.23 0) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid e4b439fb-1e5b-40a8-95c5-8effafb64c9e)
   )
