@@ -1,36 +1,31 @@
 package app.autko;
 
 import android.os.Bundle;
-import android.widget.SeekBar;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
+
+import app.autko.databinding.ActivityMainBinding;
+import app.autko.viewmodel.MainActivityViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Override
+    private ActivityMainBinding binding;
 
+    private MainActivityViewModel viewModel;
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        final SeekBar seekBar = findViewById(R.id.slider);
-        final TextView textView = findViewById(R.id.label);
+        viewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
 
-        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                textView.setText(Integer.toString(progress));
-            }
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        binding.setLifecycleOwner(this);
+        binding.setViewModel(viewModel);
 
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-            }
-        });
+        viewModel.setProgress(0);
     }
 
 }
