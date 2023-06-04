@@ -1524,7 +1524,7 @@
   (symbol (lib_id "Connector:TestPoint") (at 176.53 67.31 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 6a8d86a6-4838-4c08-ad05-44b9dc58972b)
-    (property "Reference" "TP17" (at 176.53 62.23 0)
+    (property "Reference" "TP18" (at 176.53 62.23 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "TestPoint" (at 179.07 65.913 0)
@@ -1540,7 +1540,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bb9a200c-6921-438f-a82b-708524bb5612"
-          (reference "TP17") (unit 1)
+          (reference "TP18") (unit 1)
         )
       )
     )
@@ -1651,7 +1651,7 @@
   (symbol (lib_id "Connector:TestPoint") (at 176.53 74.93 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid a0d77ea2-9a2c-4b0e-9d7c-f679af215c7e)
-    (property "Reference" "TP18" (at 176.53 80.01 0)
+    (property "Reference" "TP19" (at 176.53 80.01 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "TestPoint" (at 173.99 76.327 0)
@@ -1667,7 +1667,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bb9a200c-6921-438f-a82b-708524bb5612"
-          (reference "TP18") (unit 1)
+          (reference "TP19") (unit 1)
         )
       )
     )
