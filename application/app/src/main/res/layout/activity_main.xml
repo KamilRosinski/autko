@@ -4,13 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="viewModel" type="app.autko.viewmodel.MainActivityViewModel" />
+
+        <variable
+            name="viewModel"
+            type="app.autko.viewmodel.MainActivityViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
@@ -21,6 +25,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <SeekBar
+                android:id="@+id/slider"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:onProgressChanged="@{(seekBar, progress, fromUser) -> viewModel.setProgress(progress)}"
@@ -39,6 +44,37 @@
                 app:layout_constraintTop_toBottomOf="@+id/slider" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/bluetoothInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.btStateLabel}" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="@{viewModel.isBtDisabled}"
+                android:onClick="enableBt"
+                android:text="Enable" />
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
