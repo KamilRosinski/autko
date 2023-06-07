@@ -1,20 +1,23 @@
 package app.autko;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothManager;
+import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
+import android.provider.Settings;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.databinding.DataBindingUtil;
@@ -30,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
     private MainActivityViewModel viewModel;
 
     private ActivityResultLauncher<String> requestPermissionLauncher;
-
-    private final Intent btEnableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,21 +61,49 @@ public class MainActivity extends AppCompatActivity {
         registerReceiver(receiver, intentFilter);
 
         requestPermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), granted -> {
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_GRANTED) {
-                Log.d("BT PERMISSION", "Permission granted");
-                startActivity(btEnableIntent);
+            if (granted) {
+                enableBt();
             } else {
-               Log.d("BT PERMISSION", "Permission rejected");
+                showPermissionRejectedDialog();
             }
         });
     }
 
-    public void enableBt(final View view) {
+    private void showPermissionRejectedDialog() {
+        final AlertDialog alertDialog = new AlertDialog.Builder(this)
+                .setTitle("Permission required")
+                .setMessage("Grant BT permission via app settings in order to connect with Autko.")
+                .setPositiveButton("Grant", (dialog, id) -> openAppSettings())
+                .setNegativeButton("Deny", null)
+                .create();
+        alertDialog.show();
+    }
+
+    private void openAppSettings() {
+        try {
+            startActivity(new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.fromParts("package", getPackageName(), null)));
+        } catch (final ActivityNotFoundException exception) {
+            final String errorMsg = "Failed to open application settings.";
+            final Toast toastMessage = Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT);
+            toastMessage.show();
+        }
+    }
+
+    public void onEnableBt(final View view) {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_GRANTED) {
-            startActivity(btEnableIntent);
+            enableBt();
         } else {
-            Log.d("BT PERMISSION", "Request permission");
             requestPermissionLauncher.launch(Manifest.permission.BLUETOOTH_CONNECT);
+        }
+    }
+
+    private void enableBt() {
+        try {
+            startActivity(new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE));
+        } catch (final SecurityException exception) {
+            final String errorMsg = String.format("Failed to enable Bluetooth: %s.", exception.getMessage());
+            final Toast toastMessage = Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT);
+            toastMessage.show();
         }
     }
 
