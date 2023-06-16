@@ -1,8 +1,10 @@
 package app.autko;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
@@ -13,7 +15,9 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -29,10 +33,53 @@ import app.autko.viewmodel.MainActivityViewModel;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-
     private MainActivityViewModel viewModel;
+    private BluetoothAdapter btAdapter;
+    private ArrayAdapter<String> listAdapter;
 
-    private ActivityResultLauncher<String> requestPermissionLauncher;
+    private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.d("ACTION", intent.getAction());
+            switch (intent.getAction()) {
+                case BluetoothAdapter.ACTION_STATE_CHANGED ->
+                        viewModel.setBtState(intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, BluetoothAdapter.ERROR));
+                case BluetoothAdapter.ACTION_DISCOVERY_STARTED -> {
+                    listAdapter.clear();
+                    Toast.makeText(context, "BT scan started.", Toast.LENGTH_SHORT).show();
+                }
+                case BluetoothAdapter.ACTION_DISCOVERY_FINISHED ->
+                        Toast.makeText(context, "BT scan finished.", Toast.LENGTH_SHORT).show();
+                case BluetoothDevice.ACTION_FOUND -> {
+                    final BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE, BluetoothDevice.class);
+                    listAdapter.add(String.format("%s (%s)", device.getName(), device.getAddress()));
+                    Toast.makeText(context, String.format("Device found: %s.", device.getAddress()), Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    };
+
+    private final ActivityResultLauncher<String> btEnableRequestPermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), granted -> {
+        if (granted) {
+            enableBt();
+        } else {
+            showPermissionRejectedAppSettingsDialog("Grant BT permission via app settings in order to enable Bluetooth adapter.");
+        }
+    });
+
+    private final ActivityResultLauncher<String> btScanRequestPermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), granted -> {
+        if (granted) {
+            startBtDiscovery();
+        } else {
+            showPermissionRejectedAppSettingsDialog("Grant BT permission via app settings in order to start Bluetooth scan.");
+        }
+    });
+
+    private final ActivityResultLauncher<Intent> btEnableLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+        if (result.getResultCode() == Activity.RESULT_OK) {
+            showBtDiscoveryDialog();
+        }
+    });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,35 +91,30 @@ public class MainActivity extends AppCompatActivity {
         binding.setLifecycleOwner(this);
         binding.setViewModel(viewModel);
 
-        viewModel.setProgress(0);
-
-        final BluetoothManager btManager = getSystemService(BluetoothManager.class);
-        final BluetoothAdapter btAdapter = btManager.getAdapter();
+        btAdapter = getSystemService(BluetoothManager.class).getAdapter();
         viewModel.setBtSupported(btAdapter != null);
         viewModel.setBtState(btAdapter != null ? btAdapter.getState() : BluetoothAdapter.ERROR);
 
-        final IntentFilter intentFilter = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
-        final BroadcastReceiver receiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                viewModel.setBtState(intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, BluetoothAdapter.ERROR));
-            }
-        };
-        registerReceiver(receiver, intentFilter);
+        final IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);
+        intentFilter.addAction(BluetoothAdapter.ACTION_DISCOVERY_STARTED);
+        intentFilter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
+        intentFilter.addAction(BluetoothDevice.ACTION_FOUND);
+        registerReceiver(broadcastReceiver, intentFilter);
 
-        requestPermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), granted -> {
-            if (granted) {
-                enableBt();
-            } else {
-                showPermissionRejectedDialog();
-            }
-        });
+        listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_single_choice);
     }
 
-    private void showPermissionRejectedDialog() {
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(broadcastReceiver);
+    }
+
+    private void showPermissionRejectedAppSettingsDialog(final String message) {
         final AlertDialog alertDialog = new AlertDialog.Builder(this)
                 .setTitle("Permission required")
-                .setMessage("Grant BT permission via app settings in order to connect with Autko.")
+                .setMessage(message)
                 .setPositiveButton("Grant", (dialog, id) -> openAppSettings())
                 .setNegativeButton("Deny", null)
                 .create();
@@ -83,28 +125,51 @@ public class MainActivity extends AppCompatActivity {
         try {
             startActivity(new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.fromParts("package", getPackageName(), null)));
         } catch (final ActivityNotFoundException exception) {
-            final String errorMsg = "Failed to open application settings.";
-            final Toast toastMessage = Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT);
-            toastMessage.show();
+            Toast.makeText(this, "Failed to open application settings.", Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void onEnableBt(final View view) {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_GRANTED) {
+    public void onConnect(final View view) {
+        if (!btAdapter.isEnabled()) {
             enableBt();
         } else {
-            requestPermissionLauncher.launch(Manifest.permission.BLUETOOTH_CONNECT);
+            startBtDiscovery();
         }
     }
 
     private void enableBt() {
-        try {
-            startActivity(new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE));
-        } catch (final SecurityException exception) {
-            final String errorMsg = String.format("Failed to enable Bluetooth: %s.", exception.getMessage());
-            final Toast toastMessage = Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT);
-            toastMessage.show();
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) == PackageManager.PERMISSION_GRANTED) {
+            btEnableLauncher.launch(new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE));
+        } else {
+            btEnableRequestPermissionLauncher.launch(Manifest.permission.BLUETOOTH_CONNECT);
         }
+    }
+
+    private void startBtDiscovery() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED) {
+            final boolean discoveryStarted = btAdapter.startDiscovery();
+            if (discoveryStarted) {
+                showBtDiscoveryDialog();
+            } else {
+                Toast.makeText(this, "Failed to start Bluetooth discovery.", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+          btScanRequestPermissionLauncher.launch(Manifest.permission.BLUETOOTH_SCAN);
+        }
+    }
+
+    private void showBtDiscoveryDialog() {
+        final AlertDialog alertDialog = new AlertDialog.Builder(this)
+                .setTitle("Find Bluetooth device")
+                .setSingleChoiceItems(listAdapter, -1, (dialog, id) -> {
+                    Log.d("LIST", "Selected " + id);
+                })
+                .setPositiveButton("Connect", (dialog, id) -> {
+                    Log.d("BT CONNECT", "Connect to: " + listAdapter.getItem(id));
+                })
+                .setNegativeButton("Cancel", null)
+                .create();
+        alertDialog.show();
     }
 
 }

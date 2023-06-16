@@ -26,17 +26,17 @@
             <TextView
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="@{viewModel.btStateLabel}" />
+                android:text="@{viewModel.isConnected ? `Connected` : `Not connected`}" />
 
             <Button
                 android:id="@+id/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:enabled="@{viewModel.isBtDisabled}"
-                android:onClick="onEnableBt"
-                android:text="Enable" />
-        </LinearLayout>
+                android:enabled="@{viewModel.isBtSupported}"
+                android:onClick="onConnect"
+                android:text="@{viewModel.isConnected ? `Disconnect` : `Connect`}" />
 
+        </LinearLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
