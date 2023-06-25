@@ -4,7 +4,6 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
@@ -15,19 +14,17 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
 import app.autko.databinding.ActivityMainBinding;
+import app.autko.fragment.BtScanDialogFragment;
 import app.autko.viewmodel.MainActivityViewModel;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,26 +32,12 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private MainActivityViewModel viewModel;
     private BluetoothAdapter btAdapter;
-    private ArrayAdapter<String> listAdapter;
 
     private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
-        public void onReceive(Context context, Intent intent) {
-            Log.d("ACTION", intent.getAction());
-            switch (intent.getAction()) {
-                case BluetoothAdapter.ACTION_STATE_CHANGED ->
-                        viewModel.setBtState(intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, BluetoothAdapter.ERROR));
-                case BluetoothAdapter.ACTION_DISCOVERY_STARTED -> {
-                    listAdapter.clear();
-                    Toast.makeText(context, "BT scan started.", Toast.LENGTH_SHORT).show();
-                }
-                case BluetoothAdapter.ACTION_DISCOVERY_FINISHED ->
-                        Toast.makeText(context, "BT scan finished.", Toast.LENGTH_SHORT).show();
-                case BluetoothDevice.ACTION_FOUND -> {
-                    final BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE, BluetoothDevice.class);
-                    listAdapter.add(String.format("%s (%s)", device.getName(), device.getAddress()));
-                    Toast.makeText(context, String.format("Device found: %s.", device.getAddress()), Toast.LENGTH_SHORT).show();
-                }
+        public void onReceive(final Context context, final Intent intent) {
+            if (BluetoothAdapter.ACTION_STATE_CHANGED.equals(intent.getAction())) {
+                viewModel.setBtState(intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, BluetoothAdapter.ERROR));
             }
         }
     };
@@ -82,27 +65,21 @@ public class MainActivity extends AppCompatActivity {
     });
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         viewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
         binding.setLifecycleOwner(this);
         binding.setViewModel(viewModel);
+        setContentView(binding.getRoot());
 
         btAdapter = getSystemService(BluetoothManager.class).getAdapter();
         viewModel.setBtSupported(btAdapter != null);
         viewModel.setBtState(btAdapter != null ? btAdapter.getState() : BluetoothAdapter.ERROR);
 
-        final IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);
-        intentFilter.addAction(BluetoothAdapter.ACTION_DISCOVERY_STARTED);
-        intentFilter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
-        intentFilter.addAction(BluetoothDevice.ACTION_FOUND);
-        registerReceiver(broadcastReceiver, intentFilter);
-
-        listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_single_choice);
+        registerReceiver(broadcastReceiver, new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED));
     }
 
     @Override
@@ -159,17 +136,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showBtDiscoveryDialog() {
-        final AlertDialog alertDialog = new AlertDialog.Builder(this)
-                .setTitle("Find Bluetooth device")
-                .setSingleChoiceItems(listAdapter, -1, (dialog, id) -> {
-                    Log.d("LIST", "Selected " + id);
-                })
-                .setPositiveButton("Connect", (dialog, id) -> {
-                    Log.d("BT CONNECT", "Connect to: " + listAdapter.getItem(id));
-                })
-                .setNegativeButton("Cancel", null)
-                .create();
-        alertDialog.show();
+        new BtScanDialogFragment().show(getSupportFragmentManager(), BtScanDialogFragment.TAG);
     }
 
 }
