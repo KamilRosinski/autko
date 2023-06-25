@@ -53,39 +53,18 @@ public class BtScanDialogFragment extends DialogFragment {
 
     private BluetoothAdapter btAdapter;
 
-    private DialogBtScanBinding binding;
-
-    private ListView lvDevices;
-
     private ArrayAdapter<String> listAdapter;
 
     @Override
-    public Dialog onCreateDialog(final Bundle savedInstanceState) {
+    public void onCreate(final Bundle bundle) {
+        Log.d("LIFECYCLE", "onCreate()");
+        super.onCreate(bundle);
         viewModel = new ViewModelProvider(this).get(BtScanDialogViewModel.class);
-
-        binding = DialogBtScanBinding.inflate(getLayoutInflater());
-        binding.setLifecycleOwner(this);
-        binding.setViewModel(viewModel);
-
-        return new AlertDialog.Builder(requireContext())
-                .setTitle("Connect to robot")
-                .setView(binding.getRoot())
-                .setNegativeButton("Cancel", null)
-                .setPositiveButton("Connect", (dialog, id) -> {
-                    Log.d("CONNECT", "Connect to: " + lvDevices.getAdapter().getItem(lvDevices.getCheckedItemPosition()) + ".");
-                })
-                .create();
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
         btAdapter = getActivity().getSystemService(BluetoothManager.class).getAdapter();
+
         viewModel.setScanning(btAdapter.isDiscovering());
 
-        final Button btnScan = binding.getRoot().findViewById(R.id.btnScan);
-        btnScan.setOnClickListener(this::onScan);
+        listAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_single_choice);
 
         final IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(BluetoothAdapter.ACTION_DISCOVERY_STARTED);
@@ -93,22 +72,53 @@ public class BtScanDialogFragment extends DialogFragment {
         intentFilter.addAction(BluetoothDevice.ACTION_FOUND);
 
         getActivity().registerReceiver(broadcastReceiver, intentFilter);
-
-        final Button positiveButton = ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_POSITIVE);
-        positiveButton.setEnabled(false);
-
-        listAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_single_choice);
-
-        lvDevices = binding.getRoot().findViewById(R.id.lvDevices);
-        lvDevices.setAdapter(listAdapter);
-        lvDevices.setOnItemClickListener((parent, view, position, id) -> {
-            if (!positiveButton.isEnabled()) {
-                positiveButton.setEnabled(true);
-            }
-        });
     }
 
-    private void onScan(final View view) {
+    @Override
+    public Dialog onCreateDialog(final Bundle savedInstanceState) {
+        Log.d("LIFECYCLE", "onCreateDialog()");
+
+        final DialogBtScanBinding binding = DialogBtScanBinding.inflate(getLayoutInflater());
+        binding.setLifecycleOwner(this);
+        binding.setViewModel(viewModel);
+
+        final Button btnScan = binding.getRoot().findViewById(R.id.btnScan);
+        btnScan.setOnClickListener(this::scan);
+
+        final ListView lvDevices = binding.getRoot().findViewById(R.id.lvDevices);
+
+        final AlertDialog alertDialog = new AlertDialog.Builder(requireContext())
+                .setTitle("Connect to robot")
+                .setView(binding.getRoot())
+                .setNegativeButton("Cancel", null)
+                .setPositiveButton("Connect", (dialog, id) -> {
+                    Log.d("CONNECT", "Connect to: " + lvDevices.getAdapter().getItem(lvDevices.getCheckedItemPosition()) + ".");
+                })
+                .create();
+
+        alertDialog.setOnShowListener(dialog -> ((AlertDialog) dialog).getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false));
+
+        lvDevices.setAdapter(listAdapter);
+        lvDevices.setOnItemClickListener((parent, view, position, id) -> {
+            getPositiveButton().setEnabled(true);
+            view.setOnClickListener(null);
+        });
+
+        return alertDialog;
+    }
+
+    private Button getPositiveButton() {
+        return ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_POSITIVE);
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.d("LIFECYCLE", "onDestroy()");
+        super.onDestroy();
+        getActivity().unregisterReceiver(broadcastReceiver);
+    }
+
+    private void scan(final View view) {
         final boolean started = btAdapter.startDiscovery();
         Log.d("BT", "Started? " + started);
     }

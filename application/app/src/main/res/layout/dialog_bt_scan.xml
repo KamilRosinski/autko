@@ -17,8 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{viewModel.isScanning ? `Scanning...` : `Scan`}"
-            android:enabled="@{!viewModel.isScanning}"
-            android:onClick="onScan"/>
+            android:enabled="@{!viewModel.isScanning}"/>
 
         <ListView
             android:id="@+id/lvDevices"
