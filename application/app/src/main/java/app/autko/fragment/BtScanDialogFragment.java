@@ -11,14 +11,13 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import app.autko.BtDeviceArrayAdapter;
 import app.autko.R;
 import app.autko.databinding.DialogBtScanBinding;
 import app.autko.viewmodel.BtScanDialogViewModel;
@@ -33,7 +32,6 @@ public class BtScanDialogFragment extends DialogFragment {
             switch (intent.getAction()) {
                 case BluetoothAdapter.ACTION_DISCOVERY_STARTED -> {
                     Log.d("BT SCAN", "Scan started");
-                    listAdapter.clear();
                     viewModel.setScanning(true);
                 }
                 case BluetoothAdapter.ACTION_DISCOVERY_FINISHED -> {
@@ -43,7 +41,7 @@ public class BtScanDialogFragment extends DialogFragment {
                 case BluetoothDevice.ACTION_FOUND -> {
                     final BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE, BluetoothDevice.class);
                     Log.d("BT SCAN", "Device found: " + device.getAddress());
-                    listAdapter.add(String.format("%s (%s)", device.getName(), device.getAddress()));
+                    listAdapter.add(device);
                 }
             }
         }
@@ -53,7 +51,9 @@ public class BtScanDialogFragment extends DialogFragment {
 
     private BluetoothAdapter btAdapter;
 
-    private ArrayAdapter<String> listAdapter;
+    private ListView lvDevices;
+
+    private BtDeviceArrayAdapter listAdapter;
 
     @Override
     public void onCreate(final Bundle bundle) {
@@ -62,9 +62,14 @@ public class BtScanDialogFragment extends DialogFragment {
         viewModel = new ViewModelProvider(this).get(BtScanDialogViewModel.class);
         btAdapter = getActivity().getSystemService(BluetoothManager.class).getAdapter();
 
-        viewModel.setScanning(btAdapter.isDiscovering());
+        viewModel.isScanning().observe(this, isScanning -> {
+            if (isScanning) {
+                onScanningStarted();
+            }
+        });
 
-        listAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_single_choice);
+
+        listAdapter = new BtDeviceArrayAdapter(getContext());
 
         final IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(BluetoothAdapter.ACTION_DISCOVERY_STARTED);
@@ -72,6 +77,20 @@ public class BtScanDialogFragment extends DialogFragment {
         intentFilter.addAction(BluetoothDevice.ACTION_FOUND);
 
         getActivity().registerReceiver(broadcastReceiver, intentFilter);
+
+        viewModel.setScanning(btAdapter.isDiscovering());
+    }
+
+    private void onScanningStarted() {
+        getPositiveButton().setEnabled(false);
+        lvDevices.clearChoices();
+        listAdapter.clear();
+        if (lvDevices.getOnItemClickListener() == null) {
+            lvDevices.setOnItemClickListener((parent, view, position, id) -> {
+                getPositiveButton().setEnabled(true);
+                lvDevices.setOnItemClickListener(null);
+            });
+        }
     }
 
     @Override
@@ -83,9 +102,10 @@ public class BtScanDialogFragment extends DialogFragment {
         binding.setViewModel(viewModel);
 
         final Button btnScan = binding.getRoot().findViewById(R.id.btnScan);
-        btnScan.setOnClickListener(this::scan);
+        btnScan.setOnClickListener(view -> btAdapter.startDiscovery());
 
-        final ListView lvDevices = binding.getRoot().findViewById(R.id.lvDevices);
+        lvDevices = binding.getRoot().findViewById(R.id.lvDevices);
+        lvDevices.setAdapter(listAdapter);
 
         final AlertDialog alertDialog = new AlertDialog.Builder(requireContext())
                 .setTitle("Connect to robot")
@@ -98,11 +118,6 @@ public class BtScanDialogFragment extends DialogFragment {
 
         alertDialog.setOnShowListener(dialog -> ((AlertDialog) dialog).getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false));
 
-        lvDevices.setAdapter(listAdapter);
-        lvDevices.setOnItemClickListener((parent, view, position, id) -> {
-            getPositiveButton().setEnabled(true);
-            view.setOnClickListener(null);
-        });
 
         return alertDialog;
     }
@@ -116,10 +131,7 @@ public class BtScanDialogFragment extends DialogFragment {
         Log.d("LIFECYCLE", "onDestroy()");
         super.onDestroy();
         getActivity().unregisterReceiver(broadcastReceiver);
+        btAdapter.cancelDiscovery();
     }
 
-    private void scan(final View view) {
-        final boolean started = btAdapter.startDiscovery();
-        Log.d("BT", "Started? " + started);
-    }
 }

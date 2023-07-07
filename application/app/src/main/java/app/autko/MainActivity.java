@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
     private final ActivityResultLauncher<Intent> btEnableLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
         if (result.getResultCode() == Activity.RESULT_OK) {
-            showBtDiscoveryDialog();
+            startBtDiscovery();
         }
     });
 
