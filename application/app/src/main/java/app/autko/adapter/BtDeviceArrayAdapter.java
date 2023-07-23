@@ -1,4 +1,4 @@
-package app.autko;
+package app.autko.adapter;
 
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;

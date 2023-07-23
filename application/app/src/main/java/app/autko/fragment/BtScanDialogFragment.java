@@ -17,7 +17,9 @@ import android.widget.ListView;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import app.autko.BtDeviceArrayAdapter;
+import java.util.function.Consumer;
+
+import app.autko.adapter.BtDeviceArrayAdapter;
 import app.autko.R;
 import app.autko.databinding.DialogBtScanBinding;
 import app.autko.viewmodel.BtScanDialogViewModel;
@@ -25,6 +27,8 @@ import app.autko.viewmodel.BtScanDialogViewModel;
 public class BtScanDialogFragment extends DialogFragment {
 
     public static final String TAG = "BtScanDialog";
+
+    private final Consumer<BluetoothDevice> successCallback;
 
     private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
@@ -55,13 +59,17 @@ public class BtScanDialogFragment extends DialogFragment {
 
     private BtDeviceArrayAdapter listAdapter;
 
+    public BtScanDialogFragment(final Consumer<BluetoothDevice> successCallback) {
+        this.successCallback = successCallback;
+    }
+
     @Override
     public void onCreate(final Bundle bundle) {
-        Log.d("LIFECYCLE", "onCreate()");
         super.onCreate(bundle);
-        viewModel = new ViewModelProvider(this).get(BtScanDialogViewModel.class);
+
         btAdapter = getActivity().getSystemService(BluetoothManager.class).getAdapter();
 
+        viewModel = new ViewModelProvider(this).get(BtScanDialogViewModel.class);
         viewModel.isScanning().observe(this, isScanning -> {
             if (isScanning) {
                 onScanningStarted();
@@ -95,7 +103,6 @@ public class BtScanDialogFragment extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(final Bundle savedInstanceState) {
-        Log.d("LIFECYCLE", "onCreateDialog()");
 
         final DialogBtScanBinding binding = DialogBtScanBinding.inflate(getLayoutInflater());
         binding.setLifecycleOwner(this);
@@ -112,12 +119,12 @@ public class BtScanDialogFragment extends DialogFragment {
                 .setView(binding.getRoot())
                 .setNegativeButton("Cancel", null)
                 .setPositiveButton("Connect", (dialog, id) -> {
-                    Log.d("CONNECT", "Connect to: " + lvDevices.getAdapter().getItem(lvDevices.getCheckedItemPosition()) + ".");
+                    final BluetoothDevice device = listAdapter.getItem(lvDevices.getCheckedItemPosition());
+                    successCallback.accept(device);
                 })
                 .create();
 
         alertDialog.setOnShowListener(dialog -> ((AlertDialog) dialog).getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false));
-
 
         return alertDialog;
     }

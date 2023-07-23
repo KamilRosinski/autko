@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel;
 public class MainActivityViewModel extends ViewModel {
 
     private final MutableLiveData<Boolean> connected = new MutableLiveData<>(false);
-    private final MutableLiveData<Integer> progress = new MutableLiveData<>(0);
     private final MutableLiveData<Boolean> btSupported = new MutableLiveData<>();
     private final MutableLiveData<Integer> btState = new MutableLiveData<>();
 
@@ -15,12 +14,8 @@ public class MainActivityViewModel extends ViewModel {
         return connected;
     }
 
-    public LiveData<Integer> getProgress() {
-        return progress;
-    }
-
-    public void setProgress(final Integer progress) {
-        this.progress.setValue(progress);
+    public void setConnected(final boolean connected) {
+        this.connected.setValue(connected);
     }
 
     public LiveData<Boolean> isBtSupported() {

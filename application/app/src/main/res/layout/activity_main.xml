@@ -29,11 +29,10 @@
                 android:text="@{viewModel.isConnected ? `Connected` : `Not connected`}" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/connectButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:enabled="@{viewModel.isBtSupported}"
-                android:onClick="onConnect"
                 android:text="@{viewModel.isConnected ? `Disconnect` : `Connect`}" />
 
         </LinearLayout>
@@ -50,15 +49,16 @@
                 android:id="@+id/slider"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:onProgressChanged="@{(seekBar, progress, fromUser) -> viewModel.setProgress(progress)}"
+                android:progress="0"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{String.valueOf(viewModel.progress)}"
+                android:text="0"
                 android:textSize="48sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

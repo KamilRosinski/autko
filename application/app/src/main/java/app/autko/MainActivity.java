@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
@@ -13,8 +14,15 @@ import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -23,8 +31,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.util.Arrays;
+
+import app.autko.constant.BtMessageCodes;
 import app.autko.databinding.ActivityMainBinding;
+import app.autko.exception.BtException;
 import app.autko.fragment.BtScanDialogFragment;
+import app.autko.service.BtService;
 import app.autko.viewmodel.MainActivityViewModel;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,11 +46,21 @@ public class MainActivity extends AppCompatActivity {
     private MainActivityViewModel viewModel;
     private BluetoothAdapter btAdapter;
 
+    private TextView label;
+
     private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(final Context context, final Intent intent) {
-            if (BluetoothAdapter.ACTION_STATE_CHANGED.equals(intent.getAction())) {
-                viewModel.setBtState(intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, BluetoothAdapter.ERROR));
+            switch (intent.getAction()) {
+                case BluetoothAdapter.ACTION_STATE_CHANGED -> {
+                    viewModel.setBtState(intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, BluetoothAdapter.ERROR));
+                }
+                case BluetoothDevice.ACTION_ACL_CONNECTED -> {
+                    viewModel.setConnected(true);
+                }
+                case BluetoothDevice.ACTION_ACL_DISCONNECTED -> {
+                    viewModel.setConnected(false);
+                }
             }
         }
     };
@@ -59,10 +82,30 @@ public class MainActivity extends AppCompatActivity {
     });
 
     private final ActivityResultLauncher<Intent> btEnableLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
-        if (result.getResultCode() == Activity.RESULT_OK) {
+        if (Activity.RESULT_OK == result.getResultCode()) {
             startBtDiscovery();
         }
     });
+
+    private BtService btService;
+
+    private final Handler handler = new Handler(Looper.getMainLooper()) {
+        @Override
+        public void handleMessage(final Message message) {
+            switch (message.what) {
+                case BtMessageCodes.BYTES_RECEIVED -> {
+                    final byte[] bytes = (byte[]) message.obj;
+                    Log.d("BT MESSAGE HANDLER", "Bytes received: " + Arrays.toString(bytes) + ".");
+                    label.setText(String.valueOf(bytes[bytes.length - 1]));
+
+                }
+                case BtMessageCodes.EXCEPTION -> {
+                    Log.d("BT MESSAGE HANDLER", "Exception!");
+                    throw (BtException) message.obj;
+                }
+            }
+        }
+    };
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -79,7 +122,41 @@ public class MainActivity extends AppCompatActivity {
         viewModel.setBtSupported(btAdapter != null);
         viewModel.setBtState(btAdapter != null ? btAdapter.getState() : BluetoothAdapter.ERROR);
 
-        registerReceiver(broadcastReceiver, new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED));
+        final IntentFilter intentFilter = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
+        intentFilter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);
+        intentFilter.addAction(BluetoothDevice.ACTION_ACL_CONNECTED);
+        intentFilter.addAction(BluetoothDevice.ACTION_ACL_DISCONNECTED);
+
+        registerReceiver(broadcastReceiver, intentFilter);
+
+        btService = new BtService(btAdapter, handler);
+
+        label = findViewById(R.id.label);
+
+        final Button connectButton = findViewById(R.id.connectButton);
+        connectButton.setOnClickListener(this::onConnectDisconnect);
+
+        final SeekBar slider = findViewById(R.id.slider);
+        viewModel.isConnected().observe(this, connected -> {
+            connectButton.setEnabled(true);
+            slider.setEnabled(connected);
+        });
+        slider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(final SeekBar seekBar, final int progress, final boolean fromUser) {
+                Log.d("MAIN ACTIVITY", "Send progress: " + progress + ".");
+                btService.send(new byte[] {(byte) progress});
+            }
+
+            @Override
+            public void onStartTrackingTouch(final SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(final SeekBar seekBar) {
+            }
+        });
+
     }
 
     @Override
@@ -106,12 +183,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void onConnect(final View view) {
-        if (!btAdapter.isEnabled()) {
-            enableBt();
+    private void onConnectDisconnect(final View view) {
+        view.setEnabled(false);
+        if (Boolean.TRUE.equals(viewModel.isConnected().getValue())) {
+            btService.disconnect();
         } else {
-            startBtDiscovery();
+            if (!btAdapter.isEnabled()) {
+                enableBt();
+            } else {
+                startBtDiscovery();
+            }
         }
+
     }
 
     private void enableBt() {
@@ -136,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showBtDiscoveryDialog() {
-        new BtScanDialogFragment().show(getSupportFragmentManager(), BtScanDialogFragment.TAG);
+        new BtScanDialogFragment(btService::connect).show(getSupportFragmentManager(), BtScanDialogFragment.TAG);
     }
 
 }
