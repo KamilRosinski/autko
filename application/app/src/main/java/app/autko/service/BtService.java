@@ -21,6 +21,7 @@ public class BtService {
 
     private final BluetoothAdapter adapter;
     private final Handler handler;
+
     private volatile BtSendThread btSendThread;
     private volatile BtReceiveThread btReceiveThread;
 
@@ -44,23 +45,40 @@ public class BtService {
             throw new BtException("Failed to cancel Bluetooth discovery.", exception);
         }
 
-        final BtConnectThread btConnectThread = new BtConnectThread(socket, handler, (btSendThread, btReceiveThread) -> {
-            this.btSendThread = btSendThread;
-            this.btReceiveThread = btReceiveThread;
+        final BtConnectThread btConnectThread = new BtConnectThread(socket, handler, () -> {
+            try {
+                btSendThread = new BtSendThread(socket.getOutputStream(), handler);
+                btReceiveThread = new BtReceiveThread(socket.getInputStream(), handler);
+            } catch (final IOException exception) {
+                handler.obtainMessage(BtMessageCodes.EXCEPTION, new BtException("Failed to obtain BT I/O Streams.", exception)).sendToTarget();
+                return;
+            }
+
+            btSendThread.start();
+            btReceiveThread.start();
         });
         btConnectThread.start();
     }
 
     public void disconnect() {
-        try {
+        Log.d("BT SERVICE", "Disconnect.");
+        if (btSendThread != null && btSendThread.isAlive()) {
             Log.d("BT SERVICE", "Interrupt send thread.");
-            btSendThread.interrupt();
+            btSendThread.getMyHandler().obtainMessage(BtMessageCodes.DISCONNECT).sendToTarget();
+        }
+
+        if (btReceiveThread != null && btReceiveThread.isAlive()) {
             Log.d("BT SERVICE", "Interrupt receive thread.");
             btReceiveThread.interrupt();
-            Log.d("BT SERVICE", "Close socket.");
-            socket.close();
-        } catch (final IOException exception) {
-            throw new BtException("Failed to close connection.", exception);
+        }
+
+        if (socket != null && socket.isConnected()) {
+            try {
+                Log.d("BT SERVICE", "Close socket.");
+                socket.close();
+            } catch (final IOException exception) {
+                throw new BtException("Failed to close connection.", exception);
+            }
         }
     }
 
@@ -68,4 +86,7 @@ public class BtService {
         btSendThread.getMyHandler().obtainMessage(BtMessageCodes.SEND_BYTES, bytes).sendToTarget();
     }
 
+    public boolean isConnected() {
+        return socket != null && socket.isConnected();
+    }
 }

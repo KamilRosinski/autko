@@ -19,6 +19,7 @@ public class BtReceiveThread extends Thread {
 
     public BtReceiveThread(final InputStream stream,
                            final Handler handler) {
+        super("BtReceiveThread");
         this.stream = stream;
         this.handler = handler;
     }
@@ -26,19 +27,19 @@ public class BtReceiveThread extends Thread {
     @Override
     public void run() {
         byte[] buffer = new byte[BUFFER_SIZE];
-        while (true) {
+        while (!Thread.interrupted()) {
             try {
-                Log.d("BT RECEIVE THREAD", "Reading input stream...");
-                final int bytesRead = stream.read(buffer);
-                if (bytesRead > 0) {
-                    handler.obtainMessage(BtMessageCodes.BYTES_RECEIVED, Arrays.copyOfRange(buffer, 0, bytesRead)).sendToTarget();
+                if (stream.available() > 0) {
+                    final int bytesRead = stream.read(buffer);
+                    if (bytesRead > 0) {
+                        handler.obtainMessage(BtMessageCodes.BYTES_RECEIVED, Arrays.copyOfRange(buffer, 0, bytesRead)).sendToTarget();
+                    }
                 }
             } catch (final IOException exception) {
-                if (!Thread.currentThread().isInterrupted()) {
-                    handler.obtainMessage(BtMessageCodes.EXCEPTION, new BtException("Failed to read data.", exception)).sendToTarget();
-                }
-                break;
+                handler.obtainMessage(BtMessageCodes.EXCEPTION, new BtException("Failed to read data.", exception)).sendToTarget();
+                return;
             }
         }
+        Log.d("BT RECEIVE THREAD", "Goodbye.");
     }
 }

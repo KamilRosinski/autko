@@ -2,9 +2,9 @@ package app.autko.thread;
 
 import android.bluetooth.BluetoothSocket;
 import android.os.Handler;
+import android.util.Log;
 
 import java.io.IOException;
-import java.util.function.BiConsumer;
 
 import app.autko.constant.BtMessageCodes;
 import app.autko.exception.BtException;
@@ -13,11 +13,12 @@ public class BtConnectThread extends Thread {
 
     private final BluetoothSocket socket;
     private final Handler handler;
-    private final BiConsumer<BtSendThread, BtReceiveThread> onSuccess;
+    private final Runnable onSuccess;
 
     public BtConnectThread(final BluetoothSocket socket,
                            final Handler handler,
-                           final BiConsumer<BtSendThread, BtReceiveThread> onSuccess) {
+                           final Runnable onSuccess) {
+        super("BtConnectThread");
         this.socket = socket;
         this.handler = handler;
         this.onSuccess = onSuccess;
@@ -27,19 +28,14 @@ public class BtConnectThread extends Thread {
     public void run() {
         try {
             socket.connect();
-
-            final BtSendThread btSendThread = new BtSendThread(socket.getOutputStream(), handler);
-            btSendThread.start();
-
-            final BtReceiveThread btReceiveThread = new BtReceiveThread(socket.getInputStream(), handler);
-            btReceiveThread.start();
-
-            onSuccess.accept(btSendThread, btReceiveThread);
         } catch (final IOException | SecurityException exception) {
             closeSocket();
             handler.obtainMessage(BtMessageCodes.EXCEPTION, new BtException("Failed to establish connection.", exception)).sendToTarget();
+            return;
         }
 
+        onSuccess.run();
+        Log.d("BT CONNECT THREAD", "Goodbye.");
     }
 
     private void closeSocket() {

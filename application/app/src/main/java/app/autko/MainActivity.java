@@ -96,12 +96,13 @@ public class MainActivity extends AppCompatActivity {
                 case BtMessageCodes.BYTES_RECEIVED -> {
                     final byte[] bytes = (byte[]) message.obj;
                     Log.d("BT MESSAGE HANDLER", "Bytes received: " + Arrays.toString(bytes) + ".");
-                    label.setText(String.valueOf(bytes[bytes.length - 1]));
+                    final byte lastByte = bytes[bytes.length - 1];
+                    label.setText(Integer.toString(Byte.toUnsignedInt(lastByte)));
 
                 }
                 case BtMessageCodes.EXCEPTION -> {
                     Log.d("BT MESSAGE HANDLER", "Exception!");
-                    throw (BtException) message.obj;
+                    Toast.makeText(getApplicationContext(), ((BtException) message.obj).getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         }
@@ -140,6 +141,9 @@ public class MainActivity extends AppCompatActivity {
         viewModel.isConnected().observe(this, connected -> {
             connectButton.setEnabled(true);
             slider.setEnabled(connected);
+            if (!connected && btService.isConnected()) {
+                btService.disconnect();
+            }
         });
         slider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
