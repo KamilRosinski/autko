@@ -999,7 +999,7 @@
   (symbol (lib_id "Autko:RN4678") (at 64.77 57.15 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 15e1ded6-dbe5-477f-8f66-4b2afdc71910)
-    (property "Reference" "U13" (at 64.77 26.67 0)
+    (property "Reference" "U12" (at 64.77 26.67 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "RN4678" (at 64.77 29.21 0)
@@ -1047,7 +1047,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bb9a200c-6921-438f-a82b-708524bb5612"
-          (reference "U13") (unit 1)
+          (reference "U12") (unit 1)
         )
       )
     )
@@ -1056,7 +1056,7 @@
   (symbol (lib_id "power:GND") (at 133.35 54.61 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 19d9b120-f426-4d84-9faa-3de8304426a6)
-    (property "Reference" "#PWR052" (at 133.35 60.96 0)
+    (property "Reference" "#PWR051" (at 133.35 60.96 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 133.35 58.42 0)
@@ -1072,7 +1072,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bb9a200c-6921-438f-a82b-708524bb5612"
-          (reference "#PWR052") (unit 1)
+          (reference "#PWR051") (unit 1)
         )
       )
     )
@@ -1133,7 +1133,7 @@
   (symbol (lib_id "power:+3.3V") (at 27.94 45.72 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 356599f3-1f1e-4a26-8443-9a78f515ac30)
-    (property "Reference" "#PWR051" (at 27.94 49.53 0)
+    (property "Reference" "#PWR050" (at 27.94 49.53 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3.3V" (at 27.94 41.91 0)
@@ -1149,7 +1149,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bb9a200c-6921-438f-a82b-708524bb5612"
-          (reference "#PWR051") (unit 1)
+          (reference "#PWR050") (unit 1)
         )
       )
     )
@@ -1210,7 +1210,7 @@
   (symbol (lib_id "power:+3.3V") (at 173.99 29.21 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 525dd6a0-b8e6-4012-8f6d-d076c6e4c6f5)
-    (property "Reference" "#PWR047" (at 173.99 33.02 0)
+    (property "Reference" "#PWR046" (at 173.99 33.02 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3.3V" (at 173.99 25.4 0)
@@ -1226,7 +1226,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bb9a200c-6921-438f-a82b-708524bb5612"
-          (reference "#PWR047") (unit 1)
+          (reference "#PWR046") (unit 1)
         )
       )
     )
@@ -1261,7 +1261,7 @@
   (symbol (lib_id "power:GND") (at 92.71 35.56 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 6115a6d6-9661-4d9f-96f9-c5a328cdd623)
-    (property "Reference" "#PWR050" (at 92.71 41.91 0)
+    (property "Reference" "#PWR049" (at 92.71 41.91 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 92.71 39.37 0)
@@ -1277,7 +1277,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bb9a200c-6921-438f-a82b-708524bb5612"
-          (reference "#PWR050") (unit 1)
+          (reference "#PWR049") (unit 1)
         )
       )
     )
@@ -1338,7 +1338,7 @@
   (symbol (lib_id "power:+3.3V") (at 153.67 29.21 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 774bdf2f-8a86-4a7d-9556-6c08ec25f1c7)
-    (property "Reference" "#PWR046" (at 153.67 33.02 0)
+    (property "Reference" "#PWR045" (at 153.67 33.02 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3.3V" (at 153.67 25.4 0)
@@ -1354,7 +1354,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bb9a200c-6921-438f-a82b-708524bb5612"
-          (reference "#PWR046") (unit 1)
+          (reference "#PWR045") (unit 1)
         )
       )
     )
@@ -1389,7 +1389,7 @@
   (symbol (lib_id "power:+3.3V") (at 133.35 73.66 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 9d6dd993-97c9-4795-914d-6db62cc0e9c0)
-    (property "Reference" "#PWR057" (at 133.35 77.47 0)
+    (property "Reference" "#PWR056" (at 133.35 77.47 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3.3V" (at 133.35 69.85 0)
@@ -1405,7 +1405,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bb9a200c-6921-438f-a82b-708524bb5612"
-          (reference "#PWR057") (unit 1)
+          (reference "#PWR056") (unit 1)
         )
       )
     )
@@ -1414,7 +1414,7 @@
   (symbol (lib_id "power:GND") (at 133.35 93.98 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 9e660231-fb46-47db-b159-1499b463fb4a)
-    (property "Reference" "#PWR058" (at 133.35 100.33 0)
+    (property "Reference" "#PWR057" (at 133.35 100.33 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 133.35 97.79 0)
@@ -1430,7 +1430,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bb9a200c-6921-438f-a82b-708524bb5612"
-          (reference "#PWR058") (unit 1)
+          (reference "#PWR057") (unit 1)
         )
       )
     )
@@ -1491,7 +1491,7 @@
   (symbol (lib_id "power:+3.3V") (at 133.35 29.21 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid affcdf14-cda4-4b0b-b722-fadc09975ede)
-    (property "Reference" "#PWR045" (at 133.35 33.02 0)
+    (property "Reference" "#PWR044" (at 133.35 33.02 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3.3V" (at 133.35 25.4 0)
@@ -1507,7 +1507,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bb9a200c-6921-438f-a82b-708524bb5612"
-          (reference "#PWR045") (unit 1)
+          (reference "#PWR044") (unit 1)
         )
       )
     )
@@ -1568,7 +1568,7 @@
   (symbol (lib_id "power:GND") (at 194.31 54.61 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid c024970a-ae01-4750-a86c-912f6392e581)
-    (property "Reference" "#PWR055" (at 194.31 60.96 0)
+    (property "Reference" "#PWR054" (at 194.31 60.96 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 194.31 58.42 0)
@@ -1584,7 +1584,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bb9a200c-6921-438f-a82b-708524bb5612"
-          (reference "#PWR055") (unit 1)
+          (reference "#PWR054") (unit 1)
         )
       )
     )
@@ -1593,7 +1593,7 @@
   (symbol (lib_id "power:GND") (at 36.83 35.56 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid caf31a04-e203-4072-8269-61bdbfdba6cb)
-    (property "Reference" "#PWR049" (at 36.83 41.91 0)
+    (property "Reference" "#PWR048" (at 36.83 41.91 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 36.83 39.37 0)
@@ -1609,7 +1609,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bb9a200c-6921-438f-a82b-708524bb5612"
-          (reference "#PWR049") (unit 1)
+          (reference "#PWR048") (unit 1)
         )
       )
     )
@@ -1644,7 +1644,7 @@
   (symbol (lib_id "power:+3.3V") (at 194.31 29.21 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid d9a0bf04-1c97-40e6-b040-a88c04ab8cc4)
-    (property "Reference" "#PWR048" (at 194.31 33.02 0)
+    (property "Reference" "#PWR047" (at 194.31 33.02 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3.3V" (at 194.31 25.4 0)
@@ -1660,7 +1660,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bb9a200c-6921-438f-a82b-708524bb5612"
-          (reference "#PWR048") (unit 1)
+          (reference "#PWR047") (unit 1)
         )
       )
     )
@@ -1695,7 +1695,7 @@
   (symbol (lib_id "power:GND") (at 173.99 54.61 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid e157a340-03c9-4a61-bb57-bef7d1825bbc)
-    (property "Reference" "#PWR054" (at 173.99 60.96 0)
+    (property "Reference" "#PWR053" (at 173.99 60.96 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 173.99 58.42 0)
@@ -1711,7 +1711,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bb9a200c-6921-438f-a82b-708524bb5612"
-          (reference "#PWR054") (unit 1)
+          (reference "#PWR053") (unit 1)
         )
       )
     )
@@ -1720,7 +1720,7 @@
   (symbol (lib_id "power:GND") (at 27.94 57.15 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid fa61fa1a-965d-43d5-887b-5ff8c83b118e)
-    (property "Reference" "#PWR056" (at 27.94 63.5 0)
+    (property "Reference" "#PWR055" (at 27.94 63.5 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 27.94 60.96 0)
@@ -1736,7 +1736,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bb9a200c-6921-438f-a82b-708524bb5612"
-          (reference "#PWR056") (unit 1)
+          (reference "#PWR055") (unit 1)
         )
       )
     )
@@ -1745,7 +1745,7 @@
   (symbol (lib_id "power:GND") (at 153.67 54.61 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ff08846a-9a40-481f-b7c1-2c2ced4bdb3d)
-    (property "Reference" "#PWR053" (at 153.67 60.96 0)
+    (property "Reference" "#PWR052" (at 153.67 60.96 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 153.67 58.42 0)
@@ -1761,7 +1761,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bb9a200c-6921-438f-a82b-708524bb5612"
-          (reference "#PWR053") (unit 1)
+          (reference "#PWR052") (unit 1)
         )
       )
     )
