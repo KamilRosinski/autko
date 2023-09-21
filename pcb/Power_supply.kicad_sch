@@ -2706,7 +2706,7 @@
     (property "Value" "POWER" (at 34.29 29.21 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "" (at 34.29 34.29 0)
+    (property "Footprint" "Autko:Knitter-Switch_MSS_3112_D" (at 34.29 34.29 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 34.29 34.29 0)
