@@ -936,7 +936,7 @@
   (symbol (lib_id "Device:C") (at 46.99 38.1 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 7f240b1c-b0ed-4668-b745-5620fe3a3d8e)
-    (property "Reference" "C21" (at 49.53 36.83 0)
+    (property "Reference" "C19" (at 49.53 36.83 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100nF" (at 49.53 39.37 0)
@@ -953,7 +953,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/541574ca-21e4-445f-b8e2-ded2c59d3b8a"
-          (reference "C21") (unit 1)
+          (reference "C19") (unit 1)
         )
       )
     )
@@ -962,7 +962,7 @@
   (symbol (lib_id "Device:C") (at 92.71 77.47 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 8155da31-79fc-4123-bb2a-59a780f45237)
-    (property "Reference" "C25" (at 90.17 76.2 0)
+    (property "Reference" "C23" (at 90.17 76.2 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100nF" (at 90.17 78.74 0)
@@ -979,7 +979,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/541574ca-21e4-445f-b8e2-ded2c59d3b8a"
-          (reference "C25") (unit 1)
+          (reference "C23") (unit 1)
         )
       )
     )
@@ -1111,7 +1111,7 @@
   (symbol (lib_id "Device:C") (at 92.71 59.69 0) (mirror y) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid afe0e316-3729-4372-9604-d8a817c56b00)
-    (property "Reference" "C24" (at 90.17 58.42 0)
+    (property "Reference" "C22" (at 90.17 58.42 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100nF" (at 90.17 60.96 0)
@@ -1128,7 +1128,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/541574ca-21e4-445f-b8e2-ded2c59d3b8a"
-          (reference "C24") (unit 1)
+          (reference "C22") (unit 1)
         )
       )
     )
@@ -1137,7 +1137,7 @@
   (symbol (lib_id "Device:C") (at 77.47 38.1 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ba27d6e0-6d0b-43ce-b755-0860d2d2fdf0)
-    (property "Reference" "C22" (at 80.01 36.83 0)
+    (property "Reference" "C20" (at 80.01 36.83 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "100nF" (at 80.01 39.37 0)
@@ -1154,7 +1154,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/541574ca-21e4-445f-b8e2-ded2c59d3b8a"
-          (reference "C22") (unit 1)
+          (reference "C20") (unit 1)
         )
       )
     )
@@ -1213,7 +1213,7 @@
   (symbol (lib_id "Device:C_Polarized") (at 90.17 38.1 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ebcd37a8-5dc9-43d3-b8ff-316c5ee40ed3)
-    (property "Reference" "C23" (at 92.71 36.83 0)
+    (property "Reference" "C21" (at 92.71 36.83 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "10uF" (at 92.71 39.37 0)
@@ -1230,7 +1230,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/541574ca-21e4-445f-b8e2-ded2c59d3b8a"
-          (reference "C23") (unit 1)
+          (reference "C21") (unit 1)
         )
       )
     )
