@@ -1620,7 +1620,7 @@
     (property "Value" "LTC3872" (at 139.7 54.61 0) (do_not_autoplace)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "Package_TO_SOT_SMD:SOT-223-8" (at 127 41.91 0)
+    (property "Footprint" "Package_TO_SOT_SMD:SOT-23-8" (at 127 41.91 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "" (at 127 41.91 0)
