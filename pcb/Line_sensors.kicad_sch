@@ -1014,7 +1014,7 @@
   (symbol (lib_id "power:GND") (at 179.07 49.53 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 040fb987-c870-413a-be7b-e6a883d8a1f9)
-    (property "Reference" "#PWR078" (at 179.07 55.88 0)
+    (property "Reference" "#PWR038" (at 179.07 55.88 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 179.07 53.34 0)
@@ -1030,7 +1030,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/80d635c6-4a73-4538-989a-c930c6a7f33b"
-          (reference "#PWR078") (unit 1)
+          (reference "#PWR038") (unit 1)
         )
       )
     )
@@ -1039,7 +1039,7 @@
   (symbol (lib_id "power:GND") (at 93.98 49.53 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 0450e50a-7034-4c7a-a366-4f63e6abed91)
-    (property "Reference" "#PWR032" (at 93.98 55.88 0)
+    (property "Reference" "#PWR033" (at 93.98 55.88 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 93.98 53.34 0)
@@ -1055,7 +1055,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/80d635c6-4a73-4538-989a-c930c6a7f33b"
-          (reference "#PWR032") (unit 1)
+          (reference "#PWR033") (unit 1)
         )
       )
     )
@@ -1064,7 +1064,7 @@
   (symbol (lib_id "power:GND") (at 144.78 49.53 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 08c61a67-cc04-41cf-9b16-73f832635a5b)
-    (property "Reference" "#PWR077" (at 144.78 55.88 0)
+    (property "Reference" "#PWR036" (at 144.78 55.88 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 144.78 53.34 0)
@@ -1080,7 +1080,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/80d635c6-4a73-4538-989a-c930c6a7f33b"
-          (reference "#PWR077") (unit 1)
+          (reference "#PWR036") (unit 1)
         )
       )
     )
@@ -1114,7 +1114,7 @@
   (symbol (lib_id "power:GND") (at 213.36 49.53 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 1dbc6e9d-9208-4adf-b5ff-a3954b1c8b46)
-    (property "Reference" "#PWR079" (at 213.36 55.88 0)
+    (property "Reference" "#PWR040" (at 213.36 55.88 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 213.36 53.34 0)
@@ -1130,7 +1130,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/80d635c6-4a73-4538-989a-c930c6a7f33b"
-          (reference "#PWR079") (unit 1)
+          (reference "#PWR040") (unit 1)
         )
       )
     )
@@ -1266,7 +1266,7 @@
   (symbol (lib_id "Sensor_Proximity:CNY70") (at 85.09 45.72 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 3da03eaf-08e0-4f1a-ab26-3ad7f5697734)
-    (property "Reference" "U6" (at 85.09 38.1 0)
+    (property "Reference" "U5" (at 85.09 38.1 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "CNY70" (at 85.09 40.64 0)
@@ -1285,7 +1285,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/80d635c6-4a73-4538-989a-c930c6a7f33b"
-          (reference "U6") (unit 1)
+          (reference "U5") (unit 1)
         )
       )
     )
@@ -1320,7 +1320,7 @@
   (symbol (lib_id "power:GND") (at 128.27 49.53 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 43fdcdb3-eb3b-47a5-9e88-c12f40da9ba8)
-    (property "Reference" "#PWR033" (at 128.27 55.88 0)
+    (property "Reference" "#PWR035" (at 128.27 55.88 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 128.27 53.34 0)
@@ -1336,7 +1336,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/80d635c6-4a73-4538-989a-c930c6a7f33b"
-          (reference "#PWR033") (unit 1)
+          (reference "#PWR035") (unit 1)
         )
       )
     )
@@ -1345,7 +1345,7 @@
   (symbol (lib_id "Sensor_Proximity:CNY70") (at 119.38 45.72 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 4a1dc38c-c4a6-4bb9-bca8-dd49e7aa7258)
-    (property "Reference" "U7" (at 119.38 38.1 0)
+    (property "Reference" "U6" (at 119.38 38.1 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "CNY70" (at 119.38 40.64 0)
@@ -1364,7 +1364,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/80d635c6-4a73-4538-989a-c930c6a7f33b"
-          (reference "U7") (unit 1)
+          (reference "U6") (unit 1)
         )
       )
     )
@@ -1451,7 +1451,7 @@
   (symbol (lib_id "power:GND") (at 196.85 49.53 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 75dcbcfb-f4fd-4fb6-988f-ee8001b35e29)
-    (property "Reference" "#PWR035" (at 196.85 55.88 0)
+    (property "Reference" "#PWR039" (at 196.85 55.88 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 196.85 53.34 0)
@@ -1467,7 +1467,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/80d635c6-4a73-4538-989a-c930c6a7f33b"
-          (reference "#PWR035") (unit 1)
+          (reference "#PWR039") (unit 1)
         )
       )
     )
@@ -1502,7 +1502,7 @@
   (symbol (lib_id "Sensor_Proximity:CNY70") (at 153.67 45.72 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 793466f4-a9b5-4e3b-a90f-df00375f4496)
-    (property "Reference" "U8" (at 153.67 38.1 0)
+    (property "Reference" "U7" (at 153.67 38.1 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "CNY70" (at 153.67 40.64 0)
@@ -1521,7 +1521,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/80d635c6-4a73-4538-989a-c930c6a7f33b"
-          (reference "U8") (unit 1)
+          (reference "U7") (unit 1)
         )
       )
     )
@@ -1530,7 +1530,7 @@
   (symbol (lib_id "power:GND") (at 247.65 49.53 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 79fa7679-fc6a-4d92-ae93-d8590fae21c1)
-    (property "Reference" "#PWR080" (at 247.65 55.88 0)
+    (property "Reference" "#PWR042" (at 247.65 55.88 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 247.65 53.34 0)
@@ -1546,7 +1546,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/80d635c6-4a73-4538-989a-c930c6a7f33b"
-          (reference "#PWR080") (unit 1)
+          (reference "#PWR042") (unit 1)
         )
       )
     )
@@ -1632,7 +1632,7 @@
   (symbol (lib_id "power:GND") (at 162.56 49.53 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid a6bbf96e-2601-4879-b95f-547b3130cef0)
-    (property "Reference" "#PWR034" (at 162.56 55.88 0)
+    (property "Reference" "#PWR037" (at 162.56 55.88 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 162.56 53.34 0)
@@ -1648,7 +1648,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/80d635c6-4a73-4538-989a-c930c6a7f33b"
-          (reference "#PWR034") (unit 1)
+          (reference "#PWR037") (unit 1)
         )
       )
     )
@@ -1657,7 +1657,7 @@
   (symbol (lib_id "Sensor_Proximity:CNY70") (at 50.8 45.72 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid ab3098b6-dd33-4c85-a473-4034b155099b)
-    (property "Reference" "U5" (at 50.8 38.1 0)
+    (property "Reference" "U4" (at 50.8 38.1 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "CNY70" (at 50.8 40.64 0)
@@ -1676,7 +1676,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/80d635c6-4a73-4538-989a-c930c6a7f33b"
-          (reference "U5") (unit 1)
+          (reference "U4") (unit 1)
         )
       )
     )
@@ -1788,7 +1788,7 @@
   (symbol (lib_id "power:GND") (at 110.49 49.53 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid bca23d09-c5fd-466f-af7b-2cee6e1ce163)
-    (property "Reference" "#PWR076" (at 110.49 55.88 0)
+    (property "Reference" "#PWR034" (at 110.49 55.88 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 110.49 53.34 0)
@@ -1804,7 +1804,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/80d635c6-4a73-4538-989a-c930c6a7f33b"
-          (reference "#PWR076") (unit 1)
+          (reference "#PWR034") (unit 1)
         )
       )
     )
@@ -1813,7 +1813,7 @@
   (symbol (lib_id "Sensor_Proximity:CNY70") (at 222.25 45.72 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid c9ae3e98-e983-4d07-b607-33cdab89bc47)
-    (property "Reference" "U10" (at 222.25 38.1 0)
+    (property "Reference" "U9" (at 222.25 38.1 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "CNY70" (at 222.25 40.64 0)
@@ -1832,7 +1832,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/80d635c6-4a73-4538-989a-c930c6a7f33b"
-          (reference "U10") (unit 1)
+          (reference "U9") (unit 1)
         )
       )
     )
@@ -1841,7 +1841,7 @@
   (symbol (lib_id "power:+3.3V") (at 41.91 25.4 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid cb483f72-a18c-4af0-a409-332aebe37a69)
-    (property "Reference" "#PWR064" (at 41.91 29.21 0)
+    (property "Reference" "#PWR029" (at 41.91 29.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "+3.3V" (at 41.91 21.59 0)
@@ -1857,7 +1857,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/80d635c6-4a73-4538-989a-c930c6a7f33b"
-          (reference "#PWR064") (unit 1)
+          (reference "#PWR029") (unit 1)
         )
       )
     )
@@ -1866,7 +1866,7 @@
   (symbol (lib_id "power:GND") (at 41.91 49.53 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid d229dd2a-d1c2-4d17-9419-4da70884ced9)
-    (property "Reference" "#PWR038" (at 41.91 55.88 0)
+    (property "Reference" "#PWR030" (at 41.91 55.88 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 41.91 53.34 0)
@@ -1882,7 +1882,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/80d635c6-4a73-4538-989a-c930c6a7f33b"
-          (reference "#PWR038") (unit 1)
+          (reference "#PWR030") (unit 1)
         )
       )
     )
@@ -1891,7 +1891,7 @@
   (symbol (lib_id "power:GND") (at 231.14 49.53 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid d330b869-06c5-466c-816b-624dd66ba134)
-    (property "Reference" "#PWR036" (at 231.14 55.88 0)
+    (property "Reference" "#PWR041" (at 231.14 55.88 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 231.14 53.34 0)
@@ -1907,7 +1907,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/80d635c6-4a73-4538-989a-c930c6a7f33b"
-          (reference "#PWR036") (unit 1)
+          (reference "#PWR041") (unit 1)
         )
       )
     )
@@ -1916,7 +1916,7 @@
   (symbol (lib_id "power:GND") (at 265.43 49.53 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid d3dbbf99-7462-4ddd-8598-ad56855df291)
-    (property "Reference" "#PWR037" (at 265.43 55.88 0)
+    (property "Reference" "#PWR043" (at 265.43 55.88 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 265.43 53.34 0)
@@ -1932,7 +1932,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/80d635c6-4a73-4538-989a-c930c6a7f33b"
-          (reference "#PWR037") (unit 1)
+          (reference "#PWR043") (unit 1)
         )
       )
     )
@@ -1966,7 +1966,7 @@
   (symbol (lib_id "Sensor_Proximity:CNY70") (at 256.54 45.72 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid d9a343cf-008d-48ee-a3d5-651bc2e15b3e)
-    (property "Reference" "U11" (at 256.54 38.1 0)
+    (property "Reference" "U10" (at 256.54 38.1 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "CNY70" (at 256.54 40.64 0)
@@ -1985,7 +1985,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/80d635c6-4a73-4538-989a-c930c6a7f33b"
-          (reference "U11") (unit 1)
+          (reference "U10") (unit 1)
         )
       )
     )
@@ -2071,7 +2071,7 @@
   (symbol (lib_id "Sensor_Proximity:CNY70") (at 187.96 45.72 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid ff653224-3fea-4d9c-964f-bcb7b1da6a6e)
-    (property "Reference" "U9" (at 187.96 38.1 0)
+    (property "Reference" "U8" (at 187.96 38.1 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "CNY70" (at 187.96 40.64 0)
@@ -2090,7 +2090,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/80d635c6-4a73-4538-989a-c930c6a7f33b"
-          (reference "U9") (unit 1)
+          (reference "U8") (unit 1)
         )
       )
     )
@@ -2099,7 +2099,7 @@
   (symbol (lib_id "power:GND") (at 76.2 49.53 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ff91c91f-5802-4193-ab88-50493e68bb97)
-    (property "Reference" "#PWR075" (at 76.2 55.88 0)
+    (property "Reference" "#PWR032" (at 76.2 55.88 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 76.2 53.34 0)
@@ -2115,7 +2115,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/80d635c6-4a73-4538-989a-c930c6a7f33b"
-          (reference "#PWR075") (unit 1)
+          (reference "#PWR032") (unit 1)
         )
       )
     )

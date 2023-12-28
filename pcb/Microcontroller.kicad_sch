@@ -2320,7 +2320,7 @@
   (symbol (lib_id "power:GND") (at 68.58 116.84 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 63236a8c-e069-4dd6-aa01-e8feccb16f8a)
-    (property "Reference" "#PWR029" (at 68.58 123.19 0)
+    (property "Reference" "#PWR028" (at 68.58 123.19 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 68.58 120.65 0)
@@ -2336,7 +2336,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bbdb254f-809b-458f-9d25-868d15ad41c7"
-          (reference "#PWR029") (unit 1)
+          (reference "#PWR028") (unit 1)
         )
       )
     )
@@ -3031,7 +3031,7 @@
   (symbol (lib_id "power:GND") (at 215.9 96.52 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid cb2d9c61-d263-4496-b4e9-06f50b0fffd6)
-    (property "Reference" "#PWR028" (at 215.9 102.87 0)
+    (property "Reference" "#PWR027" (at 215.9 102.87 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 215.9 100.33 0)
@@ -3047,7 +3047,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bbdb254f-809b-458f-9d25-868d15ad41c7"
-          (reference "#PWR028") (unit 1)
+          (reference "#PWR027") (unit 1)
         )
       )
     )
@@ -3056,7 +3056,7 @@
   (symbol (lib_id "power:GND") (at 105.41 80.01 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ccae6be3-3d2e-484e-8db3-89ca20822ba9)
-    (property "Reference" "#PWR027" (at 105.41 86.36 0)
+    (property "Reference" "#PWR026" (at 105.41 86.36 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Value" "GND" (at 105.41 83.82 0)
@@ -3072,7 +3072,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bbdb254f-809b-458f-9d25-868d15ad41c7"
-          (reference "#PWR027") (unit 1)
+          (reference "#PWR026") (unit 1)
         )
       )
     )
