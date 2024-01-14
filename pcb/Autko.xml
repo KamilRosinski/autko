@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>C:\Users\Kamil\Documents\projects\Autko\pcb\Autko.kicad_sch</source>
-    <date>01/01/2024 11:38:23</date>
+    <date>14/01/2024 10:42:47</date>
     <tool>Eeschema 7.0.1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -112,24 +112,6 @@
         <comment number="9" value=""/>
       </title_block>
     </sheet>
-    <sheet number="7" name="/Mechanical/" tstamps="/e7851f52-859d-4e24-9f16-a56845bedad1/">
-      <title_block>
-        <title/>
-        <company/>
-        <rev/>
-        <date/>
-        <source>untitled.kicad_sch</source>
-        <comment number="1" value=""/>
-        <comment number="2" value=""/>
-        <comment number="3" value=""/>
-        <comment number="4" value=""/>
-        <comment number="5" value=""/>
-        <comment number="6" value=""/>
-        <comment number="7" value=""/>
-        <comment number="8" value=""/>
-        <comment number="9" value=""/>
-      </title_block>
-    </sheet>
   </design>
   <components>
     <comp ref="BT1">
@@ -221,26 +203,26 @@
       <tstamps>300ddcc6-faa2-4398-98d2-a0c8c5db398f</tstamps>
     </comp>
     <comp ref="C8">
-      <value>10uF</value>
-      <footprint>Capacitor_Tantalum_SMD:CP_EIA-3216-18_Kemet-A</footprint>
-      <libsource lib="Device" part="C_Polarized" description="Polarized capacitor"/>
+      <value>330nF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
       <property name="Sheetname" value="Power supply"/>
       <property name="Sheetfile" value="Power_supply.kicad_sch"/>
-      <property name="ki_description" value="Polarized capacitor"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
       <property name="ki_keywords" value="cap capacitor"/>
       <sheetpath names="/Power supply/" tstamps="/c078ece0-fea4-45db-aa95-3799eb753f2b/"/>
-      <tstamps>4ef2f026-d27d-462b-bb6a-13c2ee2a3eec</tstamps>
+      <tstamps>4e9e902a-e0da-4283-846d-261f056f240c</tstamps>
     </comp>
     <comp ref="C9">
-      <value>10uF</value>
-      <footprint>Capacitor_Tantalum_SMD:CP_EIA-3216-18_Kemet-A</footprint>
-      <libsource lib="Device" part="C_Polarized" description="Polarized capacitor"/>
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
       <property name="Sheetname" value="Power supply"/>
       <property name="Sheetfile" value="Power_supply.kicad_sch"/>
-      <property name="ki_description" value="Polarized capacitor"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
       <property name="ki_keywords" value="cap capacitor"/>
       <sheetpath names="/Power supply/" tstamps="/c078ece0-fea4-45db-aa95-3799eb753f2b/"/>
-      <tstamps>2ce6927b-6eb7-4584-bc53-5a6257fe3581</tstamps>
+      <tstamps>63dfa01c-ccc2-41c8-9a8c-68df7b3c2872</tstamps>
     </comp>
     <comp ref="D1">
       <value>SKL34</value>
@@ -254,6 +236,23 @@
       <tstamps>6c411006-3e1c-44db-94ed-ff1395b7f5c8</tstamps>
     </comp>
     <comp ref="D2">
+      <value>SL1A</value>
+      <footprint>Diode_SMD:D_SOD-123F</footprint>
+      <fields>
+        <field name="Sim.Device">D</field>
+        <field name="Sim.Pins">1=K 2=A</field>
+      </fields>
+      <libsource lib="Device" part="D" description="Diode"/>
+      <property name="Sim.Device" value="D"/>
+      <property name="Sim.Pins" value="1=K 2=A"/>
+      <property name="Sheetname" value="Power supply"/>
+      <property name="Sheetfile" value="Power_supply.kicad_sch"/>
+      <property name="ki_description" value="Diode"/>
+      <property name="ki_keywords" value="diode"/>
+      <sheetpath names="/Power supply/" tstamps="/c078ece0-fea4-45db-aa95-3799eb753f2b/"/>
+      <tstamps>9c510f40-7178-40c2-a8ba-dc61452fe20c</tstamps>
+    </comp>
+    <comp ref="D3">
       <value>GREEN</value>
       <footprint>LED_SMD:LED_0805_2012Metric</footprint>
       <libsource lib="Device" part="LED" description="Light emitting diode"/>
@@ -264,7 +263,7 @@
       <sheetpath names="/Power supply/" tstamps="/c078ece0-fea4-45db-aa95-3799eb753f2b/"/>
       <tstamps>a7a7c1f6-c61f-4fa3-b68d-71b64ad367aa</tstamps>
     </comp>
-    <comp ref="D3">
+    <comp ref="D4">
       <value>GREEN</value>
       <footprint>LED_SMD:LED_0805_2012Metric</footprint>
       <libsource lib="Device" part="LED" description="Light emitting diode"/>
@@ -471,19 +470,16 @@
       <tstamps>05b24b1c-b06e-4b53-b208-1f927162e8da</tstamps>
     </comp>
     <comp ref="U2">
-      <value>TLV1117-33</value>
-      <footprint>Package_TO_SOT_SMD:TO-252-2</footprint>
-      <datasheet>http://www.ti.com/lit/ds/symlink/tlv1117.pdf</datasheet>
-      <libsource lib="Regulator_Linear" part="TLV1117-33" description="800mA Low-Dropout Linear Regulator, 3.3V fixed output, TO-220/TO-252/TO-263/SOT-223"/>
+      <value>uA78M33</value>
+      <footprint>Package_TO_SOT_SMD:SOT-223-3_TabPin2</footprint>
+      <libsource lib="Autko" part="uA78M33" description=""/>
       <property name="Sheetname" value="Power supply"/>
       <property name="Sheetfile" value="Power_supply.kicad_sch"/>
-      <property name="ki_description" value="800mA Low-Dropout Linear Regulator, 3.3V fixed output, TO-220/TO-252/TO-263/SOT-223"/>
-      <property name="ki_keywords" value="linear regulator ldo fixed positive"/>
       <sheetpath names="/Power supply/" tstamps="/c078ece0-fea4-45db-aa95-3799eb753f2b/"/>
-      <tstamps>fb5b2adc-5de8-4722-9cd9-e3fd1dac07e0</tstamps>
+      <tstamps>276da0ef-734d-4aec-8769-fbc4bfa5ee4f</tstamps>
     </comp>
     <comp ref="C10">
-      <value>22pF</value>
+      <value>30pF</value>
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
       <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
       <property name="Sheetname" value="Microcontroller"/>
@@ -571,7 +567,7 @@
       <tstamps>778155b5-2fdc-43b4-bad4-243f6a2b8878</tstamps>
     </comp>
     <comp ref="C18">
-      <value>22pF</value>
+      <value>30pF</value>
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
       <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
       <property name="Sheetname" value="Microcontroller"/>
@@ -580,17 +576,6 @@
       <property name="ki_keywords" value="cap capacitor"/>
       <sheetpath names="/Microcontroller/" tstamps="/bbdb254f-809b-458f-9d25-868d15ad41c7/"/>
       <tstamps>b81f396f-d3df-4e87-b9de-c8e043de1443</tstamps>
-    </comp>
-    <comp ref="D4">
-      <value>ORANGE</value>
-      <footprint>LED_SMD:LED_0805_2012Metric</footprint>
-      <libsource lib="Device" part="LED" description="Light emitting diode"/>
-      <property name="Sheetname" value="Microcontroller"/>
-      <property name="Sheetfile" value="Microcontroller.kicad_sch"/>
-      <property name="ki_description" value="Light emitting diode"/>
-      <property name="ki_keywords" value="LED diode"/>
-      <sheetpath names="/Microcontroller/" tstamps="/bbdb254f-809b-458f-9d25-868d15ad41c7/"/>
-      <tstamps>69da1099-9b11-47cb-ae86-77df02da8a6c</tstamps>
     </comp>
     <comp ref="D5">
       <value>ORANGE</value>
@@ -601,7 +586,7 @@
       <property name="ki_description" value="Light emitting diode"/>
       <property name="ki_keywords" value="LED diode"/>
       <sheetpath names="/Microcontroller/" tstamps="/bbdb254f-809b-458f-9d25-868d15ad41c7/"/>
-      <tstamps>ebe5c1aa-e37c-4bf0-8597-95f0a1b27aab</tstamps>
+      <tstamps>69da1099-9b11-47cb-ae86-77df02da8a6c</tstamps>
     </comp>
     <comp ref="D6">
       <value>ORANGE</value>
@@ -612,7 +597,7 @@
       <property name="ki_description" value="Light emitting diode"/>
       <property name="ki_keywords" value="LED diode"/>
       <sheetpath names="/Microcontroller/" tstamps="/bbdb254f-809b-458f-9d25-868d15ad41c7/"/>
-      <tstamps>12fe2941-75cb-4bd7-bcaf-30b8969089cb</tstamps>
+      <tstamps>ebe5c1aa-e37c-4bf0-8597-95f0a1b27aab</tstamps>
     </comp>
     <comp ref="D7">
       <value>ORANGE</value>
@@ -623,7 +608,7 @@
       <property name="ki_description" value="Light emitting diode"/>
       <property name="ki_keywords" value="LED diode"/>
       <sheetpath names="/Microcontroller/" tstamps="/bbdb254f-809b-458f-9d25-868d15ad41c7/"/>
-      <tstamps>147cb188-fb5b-430b-8bd0-4077a22e77d0</tstamps>
+      <tstamps>12fe2941-75cb-4bd7-bcaf-30b8969089cb</tstamps>
     </comp>
     <comp ref="D8">
       <value>ORANGE</value>
@@ -634,7 +619,7 @@
       <property name="ki_description" value="Light emitting diode"/>
       <property name="ki_keywords" value="LED diode"/>
       <sheetpath names="/Microcontroller/" tstamps="/bbdb254f-809b-458f-9d25-868d15ad41c7/"/>
-      <tstamps>7d04a896-fbbc-496b-88e0-dbd7429a968e</tstamps>
+      <tstamps>147cb188-fb5b-430b-8bd0-4077a22e77d0</tstamps>
     </comp>
     <comp ref="D9">
       <value>ORANGE</value>
@@ -645,9 +630,20 @@
       <property name="ki_description" value="Light emitting diode"/>
       <property name="ki_keywords" value="LED diode"/>
       <sheetpath names="/Microcontroller/" tstamps="/bbdb254f-809b-458f-9d25-868d15ad41c7/"/>
-      <tstamps>21c01dd0-61fe-4631-80d7-e11ee61e5720</tstamps>
+      <tstamps>7d04a896-fbbc-496b-88e0-dbd7429a968e</tstamps>
     </comp>
     <comp ref="D10">
+      <value>ORANGE</value>
+      <footprint>LED_SMD:LED_0805_2012Metric</footprint>
+      <libsource lib="Device" part="LED" description="Light emitting diode"/>
+      <property name="Sheetname" value="Microcontroller"/>
+      <property name="Sheetfile" value="Microcontroller.kicad_sch"/>
+      <property name="ki_description" value="Light emitting diode"/>
+      <property name="ki_keywords" value="LED diode"/>
+      <sheetpath names="/Microcontroller/" tstamps="/bbdb254f-809b-458f-9d25-868d15ad41c7/"/>
+      <tstamps>21c01dd0-61fe-4631-80d7-e11ee61e5720</tstamps>
+    </comp>
+    <comp ref="D11">
       <value>ORANGE</value>
       <footprint>LED_SMD:LED_0805_2012Metric</footprint>
       <libsource lib="Device" part="LED" description="Light emitting diode"/>
@@ -659,7 +655,7 @@
       <tstamps>a9333fcf-9808-41e1-8cad-032c13609fd0</tstamps>
     </comp>
     <comp ref="FB1">
-      <value>FerriteBead</value>
+      <value>220R</value>
       <footprint>Inductor_SMD:L_0805_2012Metric</footprint>
       <libsource lib="Device" part="FerriteBead" description="Ferrite bead"/>
       <property name="Sheetname" value="Microcontroller"/>
@@ -736,7 +732,7 @@
       <tstamps>66139b95-f2b7-436a-9291-5e4728b528f9</tstamps>
     </comp>
     <comp ref="R13">
-      <value>30kR</value>
+      <value>20kR</value>
       <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
       <libsource lib="Device" part="R" description="Resistor"/>
       <property name="Sheetname" value="Microcontroller"/>
@@ -1306,39 +1302,6 @@
       <tstamps>9955b87e-aff9-46c1-bbd3-3292d3985dbe</tstamps>
     </comp>
     <comp ref="C24">
-      <value>10uF</value>
-      <footprint>Capacitor_Tantalum_SMD:CP_EIA-3216-18_Kemet-A</footprint>
-      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
-      <property name="Sheetname" value="Bluetooth"/>
-      <property name="Sheetfile" value="Bluetooth.kicad_sch"/>
-      <property name="ki_description" value="Unpolarized capacitor"/>
-      <property name="ki_keywords" value="cap capacitor"/>
-      <sheetpath names="/Bluetooth/" tstamps="/bb9a200c-6921-438f-a82b-708524bb5612/"/>
-      <tstamps>cc0840f5-f1f4-4fbc-99b2-7b4914193743</tstamps>
-    </comp>
-    <comp ref="C25">
-      <value>100nF</value>
-      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
-      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
-      <property name="Sheetname" value="Bluetooth"/>
-      <property name="Sheetfile" value="Bluetooth.kicad_sch"/>
-      <property name="ki_description" value="Unpolarized capacitor"/>
-      <property name="ki_keywords" value="cap capacitor"/>
-      <sheetpath names="/Bluetooth/" tstamps="/bb9a200c-6921-438f-a82b-708524bb5612/"/>
-      <tstamps>a96441c6-bda2-4857-b96d-562c1c823050</tstamps>
-    </comp>
-    <comp ref="C26">
-      <value>100nF</value>
-      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
-      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
-      <property name="Sheetname" value="Bluetooth"/>
-      <property name="Sheetfile" value="Bluetooth.kicad_sch"/>
-      <property name="ki_description" value="Unpolarized capacitor"/>
-      <property name="ki_keywords" value="cap capacitor"/>
-      <sheetpath names="/Bluetooth/" tstamps="/bb9a200c-6921-438f-a82b-708524bb5612/"/>
-      <tstamps>aa1a4015-b2ca-4bfc-ac2a-447ec390062f</tstamps>
-    </comp>
-    <comp ref="C27">
       <value>100nF</value>
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
       <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
@@ -1349,7 +1312,40 @@
       <sheetpath names="/Bluetooth/" tstamps="/bb9a200c-6921-438f-a82b-708524bb5612/"/>
       <tstamps>6874c521-bf02-4355-ba9b-ec05726de65c</tstamps>
     </comp>
-    <comp ref="D11">
+    <comp ref="C25">
+      <value>10uF</value>
+      <footprint>Capacitor_Tantalum_SMD:CP_EIA-3216-18_Kemet-A</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="Bluetooth"/>
+      <property name="Sheetfile" value="Bluetooth.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/Bluetooth/" tstamps="/bb9a200c-6921-438f-a82b-708524bb5612/"/>
+      <tstamps>cc0840f5-f1f4-4fbc-99b2-7b4914193743</tstamps>
+    </comp>
+    <comp ref="C26">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="Bluetooth"/>
+      <property name="Sheetfile" value="Bluetooth.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/Bluetooth/" tstamps="/bb9a200c-6921-438f-a82b-708524bb5612/"/>
+      <tstamps>a96441c6-bda2-4857-b96d-562c1c823050</tstamps>
+    </comp>
+    <comp ref="C27">
+      <value>100nF</value>
+      <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <libsource lib="Device" part="C" description="Unpolarized capacitor"/>
+      <property name="Sheetname" value="Bluetooth"/>
+      <property name="Sheetfile" value="Bluetooth.kicad_sch"/>
+      <property name="ki_description" value="Unpolarized capacitor"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <sheetpath names="/Bluetooth/" tstamps="/bb9a200c-6921-438f-a82b-708524bb5612/"/>
+      <tstamps>aa1a4015-b2ca-4bfc-ac2a-447ec390062f</tstamps>
+    </comp>
+    <comp ref="D12">
       <value>BLUE</value>
       <footprint>LED_SMD:LED_0805_2012Metric</footprint>
       <libsource lib="Device" part="LED" description="Light emitting diode"/>
@@ -1367,7 +1363,7 @@
       <property name="Sheetname" value="Bluetooth"/>
       <property name="Sheetfile" value="Bluetooth.kicad_sch"/>
       <sheetpath names="/Bluetooth/" tstamps="/bb9a200c-6921-438f-a82b-708524bb5612/"/>
-      <tstamps>80c30802-4ad9-4b19-9030-820e40c563a2 2cb9e3d7-afe9-434c-9ae7-147e5b5fff86 c73d70d6-f58a-4210-88a2-554af434acfb 16396a24-76fa-4e35-ac47-d42a0ad5ad82</tstamps>
+      <tstamps>c73d70d6-f58a-4210-88a2-554af434acfb 80c30802-4ad9-4b19-9030-820e40c563a2 2cb9e3d7-afe9-434c-9ae7-147e5b5fff86 16396a24-76fa-4e35-ac47-d42a0ad5ad82</tstamps>
     </comp>
     <comp ref="JP2">
       <value>Jumper_x4_Bridged</value>
@@ -1376,7 +1372,7 @@
       <property name="Sheetname" value="Bluetooth"/>
       <property name="Sheetfile" value="Bluetooth.kicad_sch"/>
       <sheetpath names="/Bluetooth/" tstamps="/bb9a200c-6921-438f-a82b-708524bb5612/"/>
-      <tstamps>be52e933-dceb-4841-b77e-7e7aeb0ebe64 62627fdb-c6c1-43a5-bc23-6b3f4faf9b03 60afe395-5d2e-4755-acb9-7b0004045f24 0f27848a-0de9-4e88-810e-cacbb4bebf24</tstamps>
+      <tstamps>60afe395-5d2e-4755-acb9-7b0004045f24 be52e933-dceb-4841-b77e-7e7aeb0ebe64 62627fdb-c6c1-43a5-bc23-6b3f4faf9b03 0f27848a-0de9-4e88-810e-cacbb4bebf24</tstamps>
     </comp>
     <comp ref="R36">
       <value>10kR</value>
@@ -1387,7 +1383,7 @@
       <property name="ki_description" value="Resistor"/>
       <property name="ki_keywords" value="R res resistor"/>
       <sheetpath names="/Bluetooth/" tstamps="/bb9a200c-6921-438f-a82b-708524bb5612/"/>
-      <tstamps>9f8345ac-859d-447b-bed3-f83b55f6193e</tstamps>
+      <tstamps>a68f7533-d259-440e-add7-da43e3f22a30</tstamps>
     </comp>
     <comp ref="R37">
       <value>10kR</value>
@@ -1398,7 +1394,7 @@
       <property name="ki_description" value="Resistor"/>
       <property name="ki_keywords" value="R res resistor"/>
       <sheetpath names="/Bluetooth/" tstamps="/bb9a200c-6921-438f-a82b-708524bb5612/"/>
-      <tstamps>4cd99ba4-bd0b-443f-b6b2-c9d4e783f9fd</tstamps>
+      <tstamps>9f8345ac-859d-447b-bed3-f83b55f6193e</tstamps>
     </comp>
     <comp ref="R38">
       <value>10kR</value>
@@ -1409,7 +1405,7 @@
       <property name="ki_description" value="Resistor"/>
       <property name="ki_keywords" value="R res resistor"/>
       <sheetpath names="/Bluetooth/" tstamps="/bb9a200c-6921-438f-a82b-708524bb5612/"/>
-      <tstamps>75f2651b-0a44-4b7a-bafa-51da2b09eaf6</tstamps>
+      <tstamps>4cd99ba4-bd0b-443f-b6b2-c9d4e783f9fd</tstamps>
     </comp>
     <comp ref="R39">
       <value>10kR</value>
@@ -1420,9 +1416,20 @@
       <property name="ki_description" value="Resistor"/>
       <property name="ki_keywords" value="R res resistor"/>
       <sheetpath names="/Bluetooth/" tstamps="/bb9a200c-6921-438f-a82b-708524bb5612/"/>
-      <tstamps>13dc5e8e-a497-41e0-b2db-d28d86605ccd</tstamps>
+      <tstamps>75f2651b-0a44-4b7a-bafa-51da2b09eaf6</tstamps>
     </comp>
     <comp ref="R40">
+      <value>10kR</value>
+      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <libsource lib="Device" part="R" description="Resistor"/>
+      <property name="Sheetname" value="Bluetooth"/>
+      <property name="Sheetfile" value="Bluetooth.kicad_sch"/>
+      <property name="ki_description" value="Resistor"/>
+      <property name="ki_keywords" value="R res resistor"/>
+      <sheetpath names="/Bluetooth/" tstamps="/bb9a200c-6921-438f-a82b-708524bb5612/"/>
+      <tstamps>13dc5e8e-a497-41e0-b2db-d28d86605ccd</tstamps>
+    </comp>
+    <comp ref="R41">
       <value>100R</value>
       <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
       <libsource lib="Device" part="R" description="Resistor"/>
@@ -1433,7 +1440,7 @@
       <sheetpath names="/Bluetooth/" tstamps="/bb9a200c-6921-438f-a82b-708524bb5612/"/>
       <tstamps>20f75267-9be5-48e2-a0b9-801f3f6831d8</tstamps>
     </comp>
-    <comp ref="R41">
+    <comp ref="R42">
       <value>330R</value>
       <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
       <libsource lib="Device" part="R" description="Resistor"/>
@@ -1444,7 +1451,7 @@
       <sheetpath names="/Bluetooth/" tstamps="/bb9a200c-6921-438f-a82b-708524bb5612/"/>
       <tstamps>f4c400cb-28f4-4128-a8fe-39e5eef1cf88</tstamps>
     </comp>
-    <comp ref="R42">
+    <comp ref="R43">
       <value>330R</value>
       <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
       <libsource lib="Device" part="R" description="Resistor"/>
@@ -1455,16 +1462,49 @@
       <sheetpath names="/Bluetooth/" tstamps="/bb9a200c-6921-438f-a82b-708524bb5612/"/>
       <tstamps>2a40615e-2199-4415-98c5-43ec2cd02ca6</tstamps>
     </comp>
-    <comp ref="R43">
-      <value>10kR</value>
-      <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
-      <libsource lib="Device" part="R" description="Resistor"/>
+    <comp ref="TP16">
+      <value>TestPoint</value>
+      <footprint>TestPoint:TestPoint_Pad_D2.0mm</footprint>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
       <property name="Sheetname" value="Bluetooth"/>
       <property name="Sheetfile" value="Bluetooth.kicad_sch"/>
-      <property name="ki_description" value="Resistor"/>
-      <property name="ki_keywords" value="R res resistor"/>
+      <property name="ki_description" value="test point"/>
+      <property name="ki_keywords" value="test point tp"/>
       <sheetpath names="/Bluetooth/" tstamps="/bb9a200c-6921-438f-a82b-708524bb5612/"/>
-      <tstamps>a68f7533-d259-440e-add7-da43e3f22a30</tstamps>
+      <tstamps>d1570abf-ed41-4329-ac36-7a8c605d9200</tstamps>
+    </comp>
+    <comp ref="TP17">
+      <value>TestPoint</value>
+      <footprint>TestPoint:TestPoint_Pad_D2.0mm</footprint>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value="Bluetooth"/>
+      <property name="Sheetfile" value="Bluetooth.kicad_sch"/>
+      <property name="ki_description" value="test point"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <sheetpath names="/Bluetooth/" tstamps="/bb9a200c-6921-438f-a82b-708524bb5612/"/>
+      <tstamps>d34ba914-454a-49a7-9aad-9b294b63f9be</tstamps>
+    </comp>
+    <comp ref="TP18">
+      <value>TestPoint</value>
+      <footprint>TestPoint:TestPoint_Pad_D2.0mm</footprint>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value="Bluetooth"/>
+      <property name="Sheetfile" value="Bluetooth.kicad_sch"/>
+      <property name="ki_description" value="test point"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <sheetpath names="/Bluetooth/" tstamps="/bb9a200c-6921-438f-a82b-708524bb5612/"/>
+      <tstamps>87d4ff6f-d639-4ea3-8920-a6e5def89669</tstamps>
+    </comp>
+    <comp ref="TP19">
+      <value>TestPoint</value>
+      <footprint>TestPoint:TestPoint_Pad_D2.0mm</footprint>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <property name="Sheetname" value="Bluetooth"/>
+      <property name="Sheetfile" value="Bluetooth.kicad_sch"/>
+      <property name="ki_description" value="test point"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <sheetpath names="/Bluetooth/" tstamps="/bb9a200c-6921-438f-a82b-708524bb5612/"/>
+      <tstamps>320ad718-45fc-493e-9671-e41341423e8a</tstamps>
     </comp>
     <comp ref="U12">
       <value>74HC2G14</value>
@@ -1486,7 +1526,7 @@
       <property name="ki_description" value="Dual inverter schmitt trigger"/>
       <property name="ki_keywords" value="HCMOS not inverter"/>
       <sheetpath names="/Bluetooth/" tstamps="/bb9a200c-6921-438f-a82b-708524bb5612/"/>
-      <tstamps>0f7d8933-c5a7-4e1b-ba74-fa289c0350f2 dc8e7fb0-ad38-4c74-a2b8-cc0bfd7389a9 00182e32-ccb5-4270-a3f0-0104c6ad76cf</tstamps>
+      <tstamps>dc8e7fb0-ad38-4c74-a2b8-cc0bfd7389a9 0f7d8933-c5a7-4e1b-ba74-fa289c0350f2 00182e32-ccb5-4270-a3f0-0104c6ad76cf</tstamps>
     </comp>
     <comp ref="U14">
       <value>RN4678</value>
@@ -1496,15 +1536,6 @@
       <property name="Sheetfile" value="Bluetooth.kicad_sch"/>
       <sheetpath names="/Bluetooth/" tstamps="/bb9a200c-6921-438f-a82b-708524bb5612/"/>
       <tstamps>15e1ded6-dbe5-477f-8f66-4b2afdc71910</tstamps>
-    </comp>
-    <comp ref="B1">
-      <value>~</value>
-      <footprint>Autko:Pololu_ball_caster</footprint>
-      <libsource lib="Autko" part="Caster_ball" description=""/>
-      <property name="Sheetname" value="Mechanical"/>
-      <property name="Sheetfile" value="untitled.kicad_sch"/>
-      <sheetpath names="/Mechanical/" tstamps="/e7851f52-859d-4e24-9f16-a56845bedad1/"/>
-      <tstamps>02ba79ca-25ca-42b3-86a8-6c57c54d9d20</tstamps>
     </comp>
   </components>
   <libparts>
@@ -1543,11 +1574,6 @@
         <pin num="5" name="VCC" type="power_in"/>
         <pin num="6" name="" type="output"/>
       </pins>
-    </libpart>
-    <libpart lib="Autko" part="Caster_ball">
-      <fields>
-        <field name="Reference">B</field>
-      </fields>
     </libpart>
     <libpart lib="Autko" part="Jumper_x4_Bridged">
       <fields>
@@ -1642,6 +1668,22 @@
         <pin num="6" name="D" type="passive"/>
         <pin num="7" name="D" type="passive"/>
         <pin num="8" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Autko" part="uA78M33">
+      <footprints>
+        <fp>SOT?223*</fp>
+        <fp>TO?252*</fp>
+        <fp>TO?220*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">uA78M33</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VI" type="power_in"/>
+        <pin num="2" name="GND" type="power_in"/>
+        <pin num="3" name="VO" type="power_out"/>
       </pins>
     </libpart>
     <libpart lib="Connector" part="TestPoint">
@@ -1739,6 +1781,27 @@
       <pins>
         <pin num="1" name="1" type="passive"/>
         <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="D">
+      <description>Diode</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D</field>
+        <field name="Datasheet">~</field>
+        <field name="Sim.Device">D</field>
+        <field name="Sim.Pins">1=K 2=A</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
       </pins>
     </libpart>
     <libpart lib="Device" part="D_Schottky">
@@ -1963,26 +2026,6 @@
         <pin num="2" name="-" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="Regulator_Linear" part="TLV1117-33">
-      <description>800mA Low-Dropout Linear Regulator, 3.3V fixed output, TO-220/TO-252/TO-263/SOT-223</description>
-      <docs>http://www.ti.com/lit/ds/symlink/tlv1117.pdf</docs>
-      <footprints>
-        <fp>SOT?223*</fp>
-        <fp>TO?263*</fp>
-        <fp>TO?252*</fp>
-        <fp>TO?220*</fp>
-      </footprints>
-      <fields>
-        <field name="Reference">U</field>
-        <field name="Value">TLV1117-33</field>
-        <field name="Datasheet">http://www.ti.com/lit/ds/symlink/tlv1117.pdf</field>
-      </fields>
-      <pins>
-        <pin num="1" name="GND" type="power_in"/>
-        <pin num="2" name="VO" type="power_out"/>
-        <pin num="3" name="VI" type="power_in"/>
-      </pins>
-    </libpart>
     <libpart lib="Sensor_Proximity" part="CNY70">
       <description>Reflective Optical Sensor with Transistor Output</description>
       <docs>https://www.vishay.com/docs/83751/cny70.pdf</docs>
@@ -2052,9 +2095,6 @@
     <library logical="Motor">
       <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Motor.kicad_sym</uri>
     </library>
-    <library logical="Regulator_Linear">
-      <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Regulator_Linear.kicad_sym</uri>
-    </library>
     <library logical="Sensor_Proximity">
       <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Sensor_Proximity.kicad_sym</uri>
     </library>
@@ -2069,11 +2109,12 @@
       <node ref="C13" pin="1" pintype="passive"/>
       <node ref="C15" pin="1" pintype="passive"/>
       <node ref="C19" pin="1" pintype="passive"/>
-      <node ref="C24" pin="1" pintype="passive"/>
       <node ref="C25" pin="1" pintype="passive"/>
       <node ref="C26" pin="1" pintype="passive"/>
+      <node ref="C27" pin="1" pintype="passive"/>
       <node ref="C9" pin="1" pintype="passive"/>
-      <node ref="D3" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="D2" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="D4" pin="2" pinfunction="A" pintype="passive"/>
       <node ref="FB1" pin="2" pintype="passive"/>
       <node ref="J1" pin="2" pinfunction="Pin_2" pintype="passive"/>
       <node ref="JP1" pin="2" pintype="passive"/>
@@ -2095,7 +2136,7 @@
       <node ref="R36" pin="1" pintype="passive"/>
       <node ref="R37" pin="1" pintype="passive"/>
       <node ref="R38" pin="1" pintype="passive"/>
-      <node ref="R43" pin="1" pintype="passive"/>
+      <node ref="R39" pin="1" pintype="passive"/>
       <node ref="SW2" pin="2" pinfunction="2" pintype="passive"/>
       <node ref="SW3" pin="2" pinfunction="2" pintype="passive"/>
       <node ref="TP6" pin="1" pinfunction="1" pintype="passive"/>
@@ -2105,7 +2146,7 @@
       <node ref="U13" pin="5" pinfunction="VCC" pintype="power_in"/>
       <node ref="U14" pin="4" pinfunction="BAT_IN" pintype="power_in"/>
       <node ref="U14" pin="5" pinfunction="SW_BTN" pintype="input"/>
-      <node ref="U2" pin="2" pinfunction="VO" pintype="power_out"/>
+      <node ref="U2" pin="3" pinfunction="VO" pintype="power_out"/>
       <node ref="U3" pin="19" pinfunction="VCC" pintype="passive"/>
       <node ref="U3" pin="31" pinfunction="VCC" pintype="passive"/>
       <node ref="U3" pin="9" pinfunction="VCC" pintype="power_in"/>
@@ -2114,13 +2155,14 @@
       <node ref="C20" pin="1" pintype="passive"/>
       <node ref="C21" pin="1" pintype="passive"/>
       <node ref="C8" pin="1" pintype="passive"/>
-      <node ref="D2" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="D2" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="D3" pin="2" pinfunction="A" pintype="passive"/>
       <node ref="F1" pin="2" pintype="passive"/>
       <node ref="TP2" pin="1" pinfunction="1" pintype="passive"/>
       <node ref="U11" pin="13" pinfunction="VM2" pintype="power_in"/>
       <node ref="U11" pin="14" pinfunction="VM3" pintype="power_in"/>
       <node ref="U11" pin="24" pinfunction="VM1" pintype="power_in"/>
-      <node ref="U2" pin="3" pinfunction="VI" pintype="power_in"/>
+      <node ref="U2" pin="1" pinfunction="VI" pintype="power_in"/>
     </net>
     <net code="3" name="+BATT">
       <node ref="C1" pin="1" pintype="passive"/>
@@ -2133,7 +2175,7 @@
       <node ref="U1" pin="6" pinfunction="VIN" pintype="power_in"/>
     </net>
     <net code="4" name="/Bluetooth/BT_3V3">
-      <node ref="R40" pin="2" pintype="passive"/>
+      <node ref="R41" pin="2" pintype="passive"/>
       <node ref="U14" pin="6" pinfunction="LDO33_O" pintype="power_out"/>
       <node ref="U14" pin="7" pinfunction="VDD_IO" pintype="power_in"/>
     </net>
@@ -2170,8 +2212,8 @@
       <node ref="U3" pin="32" pinfunction="PE2" pintype="bidirectional"/>
     </net>
     <net code="13" name="/Bluetooth/~{RST}">
-      <node ref="C27" pin="1" pintype="passive"/>
-      <node ref="R43" pin="2" pintype="passive"/>
+      <node ref="C24" pin="1" pintype="passive"/>
+      <node ref="R36" pin="2" pintype="passive"/>
       <node ref="U14" pin="21" pinfunction="~{RST}" pintype="input"/>
     </net>
     <net code="14" name="/Line sensors/SENSOR1">
@@ -2227,31 +2269,31 @@
       <node ref="U3" pin="11" pinfunction="PC1" pintype="bidirectional"/>
     </net>
     <net code="24" name="/Microcontroller/LED1">
-      <node ref="D4" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="D5" pin="2" pinfunction="A" pintype="passive"/>
       <node ref="U3" pin="26" pinfunction="PD6" pintype="bidirectional"/>
     </net>
     <net code="25" name="/Microcontroller/LED2">
-      <node ref="D5" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="D6" pin="2" pinfunction="A" pintype="passive"/>
       <node ref="U3" pin="25" pinfunction="PD5" pintype="bidirectional"/>
     </net>
     <net code="26" name="/Microcontroller/LED3">
-      <node ref="D6" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="D7" pin="2" pinfunction="A" pintype="passive"/>
       <node ref="U3" pin="24" pinfunction="PD4" pintype="bidirectional"/>
     </net>
     <net code="27" name="/Microcontroller/LED4">
-      <node ref="D7" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="D8" pin="2" pinfunction="A" pintype="passive"/>
       <node ref="U3" pin="23" pinfunction="PD3" pintype="bidirectional"/>
     </net>
     <net code="28" name="/Microcontroller/LED5">
-      <node ref="D8" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="D9" pin="2" pinfunction="A" pintype="passive"/>
       <node ref="U3" pin="22" pinfunction="PD2" pintype="bidirectional"/>
     </net>
     <net code="29" name="/Microcontroller/LED6">
-      <node ref="D9" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="D10" pin="2" pinfunction="A" pintype="passive"/>
       <node ref="U3" pin="21" pinfunction="PD1" pintype="bidirectional"/>
     </net>
     <net code="30" name="/Microcontroller/LED7">
-      <node ref="D10" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="D11" pin="2" pinfunction="A" pintype="passive"/>
       <node ref="U3" pin="20" pinfunction="PD0" pintype="bidirectional"/>
     </net>
     <net code="32" name="/Microcontroller/M1_IN1">
@@ -2340,8 +2382,8 @@
       <node ref="R19" pin="2" pintype="passive"/>
       <node ref="R20" pin="2" pintype="passive"/>
       <node ref="R21" pin="2" pintype="passive"/>
-      <node ref="R39" pin="2" pintype="passive"/>
       <node ref="R4" pin="2" pintype="passive"/>
+      <node ref="R40" pin="2" pintype="passive"/>
       <node ref="R5" pin="2" pintype="passive"/>
       <node ref="R6" pin="2" pintype="passive"/>
       <node ref="R7" pin="2" pintype="passive"/>
@@ -2365,7 +2407,7 @@
       <node ref="U14" pin="31" pinfunction="GND" pintype="power_in"/>
       <node ref="U14" pin="32" pinfunction="GND" pintype="power_in"/>
       <node ref="U14" pin="33" pinfunction="GND" pintype="power_in"/>
-      <node ref="U2" pin="1" pinfunction="GND" pintype="power_in"/>
+      <node ref="U2" pin="2" pinfunction="GND" pintype="power_in"/>
       <node ref="U3" pin="18" pinfunction="GND" pintype="passive"/>
       <node ref="U3" pin="30" pinfunction="GND" pintype="passive"/>
       <node ref="U3" pin="38" pinfunction="GND" pintype="passive"/>
@@ -2406,77 +2448,79 @@
       <node ref="F1" pin="1" pintype="passive"/>
       <node ref="R2" pin="1" pintype="passive"/>
     </net>
-    <net code="47" name="Net-(D2-K)">
-      <node ref="D2" pin="1" pinfunction="K" pintype="passive"/>
+    <net code="47" name="Net-(D3-K)">
+      <node ref="D3" pin="1" pinfunction="K" pintype="passive"/>
       <node ref="R6" pin="1" pintype="passive"/>
     </net>
-    <net code="48" name="Net-(D3-K)">
-      <node ref="D3" pin="1" pinfunction="K" pintype="passive"/>
+    <net code="48" name="Net-(D4-K)">
+      <node ref="D4" pin="1" pinfunction="K" pintype="passive"/>
       <node ref="R7" pin="1" pintype="passive"/>
     </net>
-    <net code="49" name="Net-(D4-K)">
-      <node ref="D4" pin="1" pinfunction="K" pintype="passive"/>
+    <net code="49" name="Net-(D5-K)">
+      <node ref="D5" pin="1" pinfunction="K" pintype="passive"/>
       <node ref="R15" pin="1" pintype="passive"/>
     </net>
-    <net code="50" name="Net-(D5-K)">
-      <node ref="D5" pin="1" pinfunction="K" pintype="passive"/>
+    <net code="50" name="Net-(D6-K)">
+      <node ref="D6" pin="1" pinfunction="K" pintype="passive"/>
       <node ref="R16" pin="1" pintype="passive"/>
     </net>
-    <net code="51" name="Net-(D6-K)">
-      <node ref="D6" pin="1" pinfunction="K" pintype="passive"/>
+    <net code="51" name="Net-(D7-K)">
+      <node ref="D7" pin="1" pinfunction="K" pintype="passive"/>
       <node ref="R17" pin="1" pintype="passive"/>
     </net>
-    <net code="52" name="Net-(D7-K)">
-      <node ref="D7" pin="1" pinfunction="K" pintype="passive"/>
+    <net code="52" name="Net-(D8-K)">
+      <node ref="D8" pin="1" pinfunction="K" pintype="passive"/>
       <node ref="R18" pin="1" pintype="passive"/>
     </net>
-    <net code="53" name="Net-(D8-K)">
-      <node ref="D8" pin="1" pinfunction="K" pintype="passive"/>
+    <net code="53" name="Net-(D9-K)">
+      <node ref="D9" pin="1" pinfunction="K" pintype="passive"/>
       <node ref="R19" pin="1" pintype="passive"/>
     </net>
-    <net code="54" name="Net-(D9-K)">
-      <node ref="D9" pin="1" pinfunction="K" pintype="passive"/>
+    <net code="54" name="Net-(D10-K)">
+      <node ref="D10" pin="1" pinfunction="K" pintype="passive"/>
       <node ref="R20" pin="1" pintype="passive"/>
     </net>
-    <net code="55" name="Net-(D10-K)">
-      <node ref="D10" pin="1" pinfunction="K" pintype="passive"/>
+    <net code="55" name="Net-(D11-K)">
+      <node ref="D11" pin="1" pinfunction="K" pintype="passive"/>
       <node ref="R21" pin="1" pintype="passive"/>
     </net>
-    <net code="56" name="Net-(D11-A)">
-      <node ref="D11" pin="2" pinfunction="A" pintype="passive"/>
-      <node ref="R40" pin="1" pintype="passive"/>
+    <net code="56" name="Net-(D12-A)">
+      <node ref="D12" pin="2" pinfunction="A" pintype="passive"/>
+      <node ref="R41" pin="1" pintype="passive"/>
     </net>
-    <net code="57" name="Net-(D11-K)">
-      <node ref="D11" pin="1" pinfunction="K" pintype="passive"/>
+    <net code="57" name="Net-(D12-K)">
+      <node ref="D12" pin="1" pinfunction="K" pintype="passive"/>
       <node ref="U14" pin="30" pinfunction="LED" pintype="output"/>
     </net>
     <net code="58" name="Net-(JP1-Pad1)">
       <node ref="JP1" pin="1" pintype="passive"/>
-      <node ref="R39" pin="1" pintype="passive"/>
+      <node ref="R40" pin="1" pintype="passive"/>
       <node ref="U12" pin="3" pintype="input"/>
     </net>
     <net code="59" name="Net-(JP1-Pad3)">
       <node ref="JP1" pin="3" pintype="passive"/>
-      <node ref="R36" pin="2" pintype="passive"/>
+      <node ref="R37" pin="2" pintype="passive"/>
       <node ref="U12" pin="1" pintype="input"/>
     </net>
     <net code="60" name="Net-(JP1-Pad5)">
       <node ref="JP1" pin="5" pintype="passive"/>
-      <node ref="R37" pin="2" pintype="passive"/>
+      <node ref="R38" pin="2" pintype="passive"/>
       <node ref="U13" pin="3" pintype="input"/>
     </net>
     <net code="61" name="Net-(JP1-Pad7)">
       <node ref="JP1" pin="7" pintype="passive"/>
-      <node ref="R38" pin="2" pintype="passive"/>
+      <node ref="R39" pin="2" pintype="passive"/>
       <node ref="U13" pin="1" pintype="input"/>
     </net>
     <net code="62" name="Net-(JP2-Pad1)">
       <node ref="JP2" pin="1" pintype="passive"/>
-      <node ref="R41" pin="2" pintype="passive"/>
+      <node ref="R42" pin="2" pintype="passive"/>
+      <node ref="TP16" pin="1" pinfunction="1" pintype="passive"/>
     </net>
     <net code="63" name="Net-(JP2-Pad3)">
       <node ref="JP2" pin="3" pintype="passive"/>
-      <node ref="R42" pin="2" pintype="passive"/>
+      <node ref="R43" pin="2" pintype="passive"/>
+      <node ref="TP17" pin="1" pinfunction="1" pintype="passive"/>
     </net>
     <net code="64" name="Net-(M1-+)">
       <node ref="C22" pin="1" pintype="passive"/>
@@ -2578,18 +2622,20 @@
     </net>
     <net code="84" name="Net-(U14-P0_0{slash}RTS)">
       <node ref="JP2" pin="5" pintype="passive"/>
+      <node ref="TP18" pin="1" pinfunction="1" pintype="passive"/>
       <node ref="U14" pin="17" pinfunction="P0_0/RTS" pintype="bidirectional"/>
     </net>
     <net code="85" name="Net-(U14-P1_7{slash}CTS)">
       <node ref="JP2" pin="7" pintype="passive"/>
+      <node ref="TP19" pin="1" pinfunction="1" pintype="passive"/>
       <node ref="U14" pin="15" pinfunction="P1_7/CTS" pintype="bidirectional"/>
     </net>
     <net code="86" name="Net-(U14-UART_RX)">
-      <node ref="R42" pin="1" pintype="passive"/>
+      <node ref="R43" pin="1" pintype="passive"/>
       <node ref="U14" pin="22" pinfunction="UART_RX" pintype="input"/>
     </net>
     <net code="87" name="Net-(U14-UART_TX)">
-      <node ref="R41" pin="1" pintype="passive"/>
+      <node ref="R42" pin="1" pintype="passive"/>
       <node ref="U14" pin="23" pinfunction="UART_TX" pintype="output"/>
     </net>
     <net code="88" name="unconnected-(J1-Pin_3-Pad3)">
