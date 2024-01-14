@@ -1706,9 +1706,15 @@
     (effects (font (size 2 2) (thickness 0.4) bold) (justify left bottom))
     (uuid b4842bfb-a068-4d83-8bae-2dcffabbf1d0)
   )
-  (text "LED: 2mA, 1.8V, 50mcd\nMCU voltage drop: 0.2V" (at 123.19 102.87 0)
+  (text "I_{LED} = 2mA, V_{LED} = 1.8V, 50mcd\nV_{OH} @2mA = 3.1V"
+    (at 123.19 102.87 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid c0d0f584-d284-42ff-bb68-d8e72d9224c4)
+  )
+  (text "C_{L} = 20pF\nC_{STRAY} = 5pF\nC = 2 * (C_{L} - C_{STRAY}) = 30pF"
+    (at 232.41 57.15 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid e759e36b-e453-4168-ba06-86f0e4f2eaf0)
   )
   (text "LED indicators" (at 121.92 63.5 0)
     (effects (font (size 2 2) (thickness 0.4) bold) (justify left bottom))
@@ -1981,7 +1987,7 @@
   (symbol (lib_id "Device:LED") (at 165.1 81.28 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 12fe2941-75cb-4bd7-bcaf-30b8969089cb)
-    (property "Reference" "D6" (at 167.64 80.01 90)
+    (property "Reference" "D7" (at 167.64 80.01 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "ORANGE" (at 167.64 82.55 90)
@@ -1998,7 +2004,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bbdb254f-809b-458f-9d25-868d15ad41c7"
-          (reference "D6") (unit 1)
+          (reference "D7") (unit 1)
         )
       )
     )
@@ -2007,7 +2013,7 @@
   (symbol (lib_id "Device:LED") (at 177.8 81.28 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 147cb188-fb5b-430b-8bd0-4077a22e77d0)
-    (property "Reference" "D7" (at 180.34 80.01 90)
+    (property "Reference" "D8" (at 180.34 80.01 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "ORANGE" (at 180.34 82.55 90)
@@ -2024,7 +2030,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bbdb254f-809b-458f-9d25-868d15ad41c7"
-          (reference "D7") (unit 1)
+          (reference "D8") (unit 1)
         )
       )
     )
@@ -2033,7 +2039,7 @@
   (symbol (lib_id "Device:LED") (at 203.2 81.28 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 21c01dd0-61fe-4631-80d7-e11ee61e5720)
-    (property "Reference" "D9" (at 205.74 80.01 90)
+    (property "Reference" "D10" (at 205.74 80.01 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "ORANGE" (at 205.74 82.55 90)
@@ -2050,7 +2056,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bbdb254f-809b-458f-9d25-868d15ad41c7"
-          (reference "D9") (unit 1)
+          (reference "D10") (unit 1)
         )
       )
     )
@@ -2059,7 +2065,7 @@
   (symbol (lib_id "Device:Crystal") (at 251.46 38.1 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 223d905a-2c14-4208-9ec2-62619692c030)
-    (property "Reference" "Y1" (at 247.65 36.83 90)
+    (property "Reference" "X1" (at 247.65 36.83 90)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "8MHz" (at 247.65 39.37 90)
@@ -2076,7 +2082,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bbdb254f-809b-458f-9d25-868d15ad41c7"
-          (reference "Y1") (unit 1)
+          (reference "X1") (unit 1)
         )
       )
     )
@@ -2238,11 +2244,11 @@
   (symbol (lib_id "Device:FerriteBead") (at 82.55 27.94 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 3ec450b8-7413-4895-8a7b-bd64fdcfca36)
-    (property "Reference" "FB1" (at 82.55 22.86 90)
+    (property "Reference" "FB1" (at 82.55 21.59 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "FerriteBead" (at 82.4992 24.13 90)
-      (effects (font (size 1.27 1.27)) hide)
+    (property "Value" "220R" (at 82.55 24.13 90)
+      (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Inductor_SMD:L_0805_2012Metric" (at 82.55 29.718 90)
       (effects (font (size 1.27 1.27)) hide)
@@ -2371,7 +2377,7 @@
   (symbol (lib_id "Device:LED") (at 139.7 81.28 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 69da1099-9b11-47cb-ae86-77df02da8a6c)
-    (property "Reference" "D4" (at 142.24 80.01 90)
+    (property "Reference" "D5" (at 142.24 80.01 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "ORANGE" (at 142.24 82.55 90)
@@ -2388,7 +2394,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bbdb254f-809b-458f-9d25-868d15ad41c7"
-          (reference "D4") (unit 1)
+          (reference "D5") (unit 1)
         )
       )
     )
@@ -2474,7 +2480,7 @@
   (symbol (lib_id "Device:LED") (at 190.5 81.28 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 7d04a896-fbbc-496b-88e0-dbd7429a968e)
-    (property "Reference" "D8" (at 193.04 80.01 90)
+    (property "Reference" "D9" (at 193.04 80.01 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "ORANGE" (at 193.04 82.55 90)
@@ -2491,7 +2497,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bbdb254f-809b-458f-9d25-868d15ad41c7"
-          (reference "D8") (unit 1)
+          (reference "D9") (unit 1)
         )
       )
     )
@@ -2800,7 +2806,7 @@
   (symbol (lib_id "Device:LED") (at 215.9 81.28 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid a9333fcf-9808-41e1-8cad-032c13609fd0)
-    (property "Reference" "D10" (at 218.44 80.01 90)
+    (property "Reference" "D11" (at 218.44 80.01 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "ORANGE" (at 218.44 82.55 90)
@@ -2817,7 +2823,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bbdb254f-809b-458f-9d25-868d15ad41c7"
-          (reference "D10") (unit 1)
+          (reference "D11") (unit 1)
         )
       )
     )
@@ -2829,7 +2835,7 @@
     (property "Reference" "C10" (at 257.81 25.4 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "22pF" (at 257.81 27.94 90)
+    (property "Value" "30pF" (at 257.81 27.94 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 261.62 30.7848 0)
@@ -2855,7 +2861,7 @@
     (property "Reference" "R13" (at 107.95 63.5 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "30kR" (at 107.95 66.04 0)
+    (property "Value" "20kR" (at 107.95 66.04 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Footprint" "Resistor_SMD:R_0805_2012Metric" (at 103.632 64.77 90)
@@ -2907,7 +2913,7 @@
     (property "Reference" "C18" (at 257.81 38.1 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "22pF" (at 257.81 40.64 90)
+    (property "Value" "30pF" (at 257.81 40.64 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Capacitor_SMD:C_0805_2012Metric" (at 261.62 43.4848 0)
@@ -3132,7 +3138,7 @@
   (symbol (lib_id "Device:LED") (at 152.4 81.28 90) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid ebe5c1aa-e37c-4bf0-8597-95f0a1b27aab)
-    (property "Reference" "D5" (at 154.94 80.01 90)
+    (property "Reference" "D6" (at 154.94 80.01 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
     (property "Value" "ORANGE" (at 154.94 82.55 90)
@@ -3149,7 +3155,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bbdb254f-809b-458f-9d25-868d15ad41c7"
-          (reference "D5") (unit 1)
+          (reference "D6") (unit 1)
         )
       )
     )

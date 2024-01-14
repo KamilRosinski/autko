@@ -966,12 +966,16 @@
     (uuid fca6c23c-1afe-4f80-8f8a-c144d68a0fa3)
   )
 
-  (rectangle (start 15.24 19.05) (end 281.94 74.93)
+  (rectangle (start 15.24 19.05) (end 281.94 80.01)
     (stroke (width 0.25) (type dash))
     (fill (type none))
     (uuid 14b40fca-3b67-4da8-b1f3-04cbaedbbc59)
   )
 
+  (text "I_{LED} = 10mA, V_{LED} = 1.1V" (at 16.51 78.74 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 6d70fde3-df4f-4dfc-a23f-8eade4da2a1b)
+  )
   (text "Line sensors" (at 15.24 17.78 0)
     (effects (font (size 2 2) (thickness 0.4) bold) (justify left bottom))
     (uuid d8a90c04-406b-4ccc-a424-a6496000df70)
