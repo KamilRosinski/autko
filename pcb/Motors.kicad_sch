@@ -1303,7 +1303,7 @@
     (property "Value" "10uF" (at 92.71 39.37 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-3216-18_Kemet-A" (at 91.1352 41.91 0)
+    (property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-3528-12_Kemet-T" (at 91.1352 41.91 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 90.17 38.1 0)
