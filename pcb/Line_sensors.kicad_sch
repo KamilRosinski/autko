@@ -1010,7 +1010,7 @@
     (uuid c44c5e6a-d619-434e-b464-c5724735ef76)
   )
 
-  (hierarchical_label "SENSOR[1..7]" (shape output) (at 31.75 69.85 180) (fields_autoplaced)
+  (hierarchical_label "SENSOR[1..7]" (shape output) (at 33.02 69.85 180) (fields_autoplaced)
     (effects (font (size 1.27 1.27)) (justify right))
     (uuid 2cd8a8e9-5fad-4681-a59b-af4f5e59c4a8)
   )
