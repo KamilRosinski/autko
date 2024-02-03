@@ -2372,7 +2372,7 @@
     (property "Value" "10uF" (at 24.13 52.07 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-3528-12_Kemet-T" (at 25.7048 54.61 0)
+    (property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-3216-18_Kemet-A" (at 25.7048 54.61 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 26.67 50.8 0)
