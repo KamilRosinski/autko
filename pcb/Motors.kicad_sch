@@ -1072,7 +1072,7 @@
   (symbol (lib_id "Driver_Motor:TB6612FNG") (at 64.77 69.85 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 9955b87e-aff9-46c1-bbd3-3292d3985dbe)
-    (property "Reference" "U11" (at 74.3459 92.71 0)
+    (property "Reference" "U4" (at 74.3459 92.71 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
     (property "Value" "TB6612FNG" (at 74.3459 95.25 0)
@@ -1111,7 +1111,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/541574ca-21e4-445f-b8e2-ded2c59d3b8a"
-          (reference "U11") (unit 1)
+          (reference "U4") (unit 1)
         )
       )
     )

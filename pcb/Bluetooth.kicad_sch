@@ -1274,7 +1274,7 @@
   (symbol (lib_id "Autko:74HC2G14") (at 193.04 73.66 90) (unit 3)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 00182e32-ccb5-4270-a3f0-0104c6ad76cf)
-    (property "Reference" "U13" (at 193.04 64.77 90)
+    (property "Reference" "U6" (at 193.04 64.77 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "74HC2G14" (at 193.04 67.31 90)
@@ -1295,7 +1295,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bb9a200c-6921-438f-a82b-708524bb5612"
-          (reference "U13") (unit 3)
+          (reference "U6") (unit 3)
         )
       )
     )
@@ -1336,7 +1336,7 @@
   (symbol (lib_id "Autko:74HC2G14") (at 208.28 40.64 0) (unit 2)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 0f7d8933-c5a7-4e1b-ba74-fa289c0350f2)
-    (property "Reference" "U13" (at 208.28 33.02 0)
+    (property "Reference" "U6" (at 208.28 33.02 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "74HC2G14" (at 208.28 35.56 0)
@@ -1357,7 +1357,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bb9a200c-6921-438f-a82b-708524bb5612"
-          (reference "U13") (unit 2)
+          (reference "U6") (unit 2)
         )
       )
     )
@@ -1392,7 +1392,7 @@
   (symbol (lib_id "Autko:RN4678") (at 63.5 55.88 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 15e1ded6-dbe5-477f-8f66-4b2afdc71910)
-    (property "Reference" "U14" (at 63.5 25.4 0)
+    (property "Reference" "U7" (at 63.5 25.4 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "RN4678" (at 63.5 27.94 0)
@@ -1440,7 +1440,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bb9a200c-6921-438f-a82b-708524bb5612"
-          (reference "U14") (unit 1)
+          (reference "U7") (unit 1)
         )
       )
     )
@@ -1506,7 +1506,7 @@
   (symbol (lib_id "Autko:74HC2G14") (at 144.78 40.64 0) (unit 2)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 1ba162ac-2c64-4051-b50a-a80a18f241c5)
-    (property "Reference" "U12" (at 144.78 33.02 0)
+    (property "Reference" "U5" (at 144.78 33.02 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "74HC2G14" (at 144.78 35.56 0)
@@ -1527,7 +1527,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bb9a200c-6921-438f-a82b-708524bb5612"
-          (reference "U12") (unit 2)
+          (reference "U5") (unit 2)
         )
       )
     )
@@ -1749,7 +1749,7 @@
   (symbol (lib_id "Autko:74HC2G14") (at 176.53 40.64 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid 572b1c72-3b11-4127-bb2a-00b68992d845)
-    (property "Reference" "U12" (at 176.53 33.02 0)
+    (property "Reference" "U5" (at 176.53 33.02 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "74HC2G14" (at 176.53 35.56 0)
@@ -1770,7 +1770,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bb9a200c-6921-438f-a82b-708524bb5612"
-          (reference "U12") (unit 1)
+          (reference "U5") (unit 1)
         )
       )
     )
@@ -2507,7 +2507,7 @@
   (symbol (lib_id "Autko:74HC2G14") (at 240.03 40.64 0) (unit 1)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid dc8e7fb0-ad38-4c74-a2b8-cc0bfd7389a9)
-    (property "Reference" "U13" (at 240.03 33.02 0)
+    (property "Reference" "U6" (at 240.03 33.02 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "74HC2G14" (at 240.03 35.56 0)
@@ -2528,7 +2528,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bb9a200c-6921-438f-a82b-708524bb5612"
-          (reference "U13") (unit 1)
+          (reference "U6") (unit 1)
         )
       )
     )
@@ -2562,7 +2562,7 @@
   (symbol (lib_id "Autko:74HC2G14") (at 153.67 73.66 90) (unit 3)
     (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced)
     (uuid ecce61a3-4336-4de8-b9c9-84100526aa8d)
-    (property "Reference" "U12" (at 153.67 64.77 90)
+    (property "Reference" "U5" (at 153.67 64.77 90)
       (effects (font (size 1.27 1.27)))
     )
     (property "Value" "74HC2G14" (at 153.67 67.31 90)
@@ -2583,7 +2583,7 @@
     (instances
       (project "Autko"
         (path "/8d5cfdec-de34-4148-9100-7125640c46f5/bb9a200c-6921-438f-a82b-708524bb5612"
-          (reference "U12") (unit 3)
+          (reference "U5") (unit 3)
         )
       )
     )
