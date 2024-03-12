@@ -1,0 +1,19 @@
+// RN4678 configuration commands
+
+$$$ // command mode
+--- // data mode
+
+R,1 // reset
+
+SG,2 // BT classic only
+SN,Kamil's RN4678
+
+SU,11 // baud rate: 1 Mbps
+SU,0D // baud rate: 4 Mbps
+
+SX,01,0B // data/cmd mode switch on P0_5
+
+D // print basic data
+
+G:,01EE,01 // get LED intensity, 22 by default
+S:,01EE,CC // set LED current to 4 mA
