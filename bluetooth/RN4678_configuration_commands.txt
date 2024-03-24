@@ -12,6 +12,7 @@ SU,11 // baud rate: 1 Mbps
 
 SX,01,0B // data/cmd mode switch on P0_5
 SQ,9000 // flow control and fast mode enabled
+SO,, // disable status strings
 
 D // print basic data
 V // print version
