@@ -2250,7 +2250,7 @@
     (property "Value" "220R" (at 82.55 24.13 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "Inductor_SMD:L_0603_1608Metric" (at 82.55 29.718 90)
+    (property "Footprint" "Capacitor_SMD:C_0603_1608Metric" (at 82.55 29.718 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 82.55 27.94 0)
