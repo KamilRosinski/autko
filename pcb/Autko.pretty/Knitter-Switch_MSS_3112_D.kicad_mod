@@ -40,4 +40,9 @@
   (pad "1" thru_hole circle (at 0 0) (size 1.8 1.8) (drill 0.9) (layers "*.Cu" "*.Mask") (tstamp 39dddf83-c108-4a82-a37e-69a77a70a3fa))
   (pad "2" thru_hole circle (at 0 -5.08) (size 1.8 1.8) (drill 0.9) (layers "*.Cu" "*.Mask") (tstamp 84256ac9-f2ee-44e6-9172-a25d9dddd1e1))
   (pad "3" thru_hole circle (at 0 5.08) (size 1.8 1.8) (drill 0.9) (layers "*.Cu" "*.Mask") (tstamp 140d2c54-76e3-4f42-b872-32958b44554f))
+  (model "${KIPRJMOD}/step/MSS 3112 D.IGS"
+    (offset (xyz 0 0 0))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 180 0 0))
+  )
 )

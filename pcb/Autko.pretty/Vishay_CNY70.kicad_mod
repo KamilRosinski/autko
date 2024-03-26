@@ -49,4 +49,9 @@
   (pad "2" thru_hole circle (at -1.4 1.27) (size 1.6 1.6) (drill 0.8) (layers "*.Cu" "*.Mask") (tstamp 63c19faa-6f6c-4122-a4cf-221383820d45))
   (pad "3" thru_hole circle (at 1.4 1.27) (size 1.6 1.6) (drill 0.8) (layers "*.Cu" "*.Mask") (tstamp e5556fe6-710d-4dda-8ddd-a5853541d010))
   (pad "4" thru_hole circle (at 1.4 -1.27) (size 1.6 1.6) (drill 0.8) (layers "*.Cu" "*.Mask") (tstamp 219b4ec8-d4ce-4154-8954-770f9502065c))
+  (model "${KICAD6_3DMODEL_DIR}/OptoDevice.3dshapes/Vishay_CNY70.wrl"
+    (offset (xyz -1.4 1.27 0))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 0 0 0))
+  )
 )

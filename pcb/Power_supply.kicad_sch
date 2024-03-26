@@ -2905,7 +2905,7 @@
     (property "Value" "3.3uH" (at 125.73 26.67 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "Inductor_SMD:L_12x12mm_H6mm" (at 125.73 29.21 0)
+    (property "Footprint" "Autko:Coilcraft_MSS1260" (at 125.73 29.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 125.73 29.21 0)
